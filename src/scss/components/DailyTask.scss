@@ -1,0 +1,301 @@
+@import "../mixins.scss";
+
+.daily-task {
+	color: $font-color3;
+	padding: 16px 20px;
+	height: 100%;
+	width: 100%;
+
+    $baseL                  :    1300;
+    $baseWidth              :    1300px;
+    $sectionheight          :    $baseWidth * 108 / $baseL;
+    $sectionLeftWidth       :    $baseWidth * 120 / $baseL;
+    $sectionMiddleWidth     :    $baseWidth * 340 / $baseL;
+    $sectionRightWidth      :    $baseWidth * 150 / $baseL;
+    $textHilightColor       :    #FFF;
+
+    $section3height          :    $baseWidth * 160 / $baseL;
+
+	.icon-question {
+		cursor: pointer;
+		display: inline-block;
+		background-image: url("../img/tc.png");
+		width: 17px;
+		height: 17px;
+		background-position: -104px -8px;
+		vertical-align: middle;
+		margin-left: 8px;
+	}
+
+	.tc-coin-icon {
+		display: inline-block;
+		background-image: url("../img/tc.png");
+		width: 20px;
+		height: 20px;
+		background-position: -230px -7px;
+		vertical-align: middle;
+	}
+
+	.tc-slot-icon {
+		display: inline-block;
+		background-image: url("../img/tc.png");
+		width: 30px;
+		height: 17px;
+		background-position: -259px -8px;
+		vertical-align: middle;
+	}
+
+	.tc-live-icon {
+		display: inline-block;
+		background-image: url("../img/tc.png");
+		width: 17px;
+		height: 20px;
+		background-position: -295px -8px;
+		vertical-align: middle;
+	}
+
+	.tc-sport-icon {
+		display: inline-block;
+		background-image: url("../img/tc.png");
+		width: 19px;
+		height: 19px;
+		background-position: -327px -8px;
+		vertical-align: middle;
+	}
+
+	.tc-lottery-icon {
+		display: inline-block;
+		background-image: url("../img/tc.png");
+		width: 18px;
+		height: 18px;
+		background-position: -359px -8px;
+		vertical-align: middle;
+	}
+
+	.section1 {
+		background-color: #2d1d3b;
+		height: $sectionheight;
+		width: 100%;
+		text-align: left;
+		margin-bottom: 10px;
+
+		.section-left {
+			display: inline-block;
+			width: $sectionLeftWidth;
+			vertical-align: top;
+			height: $sectionheight;
+			line-height: $sectionheight;
+			text-align: center;
+
+			.slot-rescue-icon {
+				display: inline-block;
+				background-image: url("../img/tc.png");
+				width: 82px;
+				height: 86px;
+				background-position: 0 -165px;
+				vertical-align: middle;
+			}
+		}	
+
+		.section-middle {
+			display: inline-block;
+			width: $sectionMiddleWidth;
+			vertical-align: top;
+			height: $sectionheight;
+			line-height: $sectionheight;
+			padding: 10px 0;
+
+			.middle-info {
+				height: 30px;
+				line-height: 30px;
+				text-align: left;
+			}
+
+			.info1 {
+				color: #FFF;
+				font-size: 16px;
+			}
+		}
+
+		.section-right {
+			display: inline-block;
+			width: $sectionRightWidth;
+			vertical-align: top;
+			height: $sectionheight;
+			line-height: $sectionheight;
+			position: relative;
+			text-align: center;
+
+			.get-bonus {
+				@include button1;
+
+				background-color: #6c3a8b;
+				width: 134px;
+				height: 36px;
+				line-height: 36px;
+			}
+
+			.bonus-info {
+				color: #6c3a8b;
+				position: absolute;
+				display: inline-block;
+				font-size: 13px;
+				width: 100%;
+				left: 0;
+				top: 50%;
+				height: 24px;
+				line-height: 24px;
+				margin-top: 18px;
+				text-align: center;
+			}
+		}	
+	}
+
+	.section2 {
+		background-color: #2d1d3b;
+		border-bottom: 1px solid #452a57;
+		height: $sectionheight;
+		width: 100%;
+		text-align: left;
+
+		.section-left {
+			display: inline-block;
+			width: $sectionLeftWidth;
+			vertical-align: top;
+			height: $sectionheight;
+			line-height: $sectionheight;
+			text-align: center;
+
+			.money-return-icon {
+				display: inline-block;
+				background-image: url("../img/tc.png");
+				width: 82px;
+				height: 86px;
+				background-position: -92px -165px;
+				vertical-align: middle;
+			}
+		}	
+
+		.section-middle {
+			display: inline-block;
+			width: $sectionMiddleWidth;
+			vertical-align: top;
+			height: $sectionheight;
+			line-height: $sectionheight;
+			padding: 10px 0;
+
+			.middle-info {
+				height: 30px;
+				line-height: 30px;
+				text-align: left;
+			}
+
+			.info1 {
+				color: #FFF;
+				font-size: 16px;
+			}
+
+			.bonus-rates {
+				display: inline-block;
+
+				li {
+					display: inline-block;
+					margin-right: 10px;
+
+					.times-icon {
+						display: inline-block;
+						vertical-align: middle;
+						margin: 0 3px
+					}
+				}
+			}
+		}
+
+		.section-right {
+			display: inline-block;
+			width: $sectionRightWidth;
+			vertical-align: top;
+			height: $sectionheight;
+			line-height: $sectionheight;
+			position: relative;
+			text-align: center;
+
+			.get-bonus {
+				@include button1;
+
+				background-color: #6c3a8b;
+				width: 134px;
+				height: 36px;
+				line-height: 36px;
+			}
+
+			.bonus-info {
+				color: #6c3a8b;
+				position: absolute;
+				display: inline-block;
+				font-size: 13px;
+				width: 100%;
+				left: 0;
+				top: 50%;
+				height: 24px;
+				line-height: 24px;
+				margin-top: 18px;
+				text-align: center;
+			}
+		}	
+	}
+
+	.section3 {
+		background-color: #2d1d3b;
+		height: $section3height;
+		width: 100%;
+
+		.section3-title {
+			height: 30px;
+			line-height: 30px;
+			width: 100%;
+			text-align: right;
+
+			.effective-betting-detail {
+				display: inline-block;
+				background-color: #452a57;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+				width: 100px;
+			}
+		}
+
+		ul {
+			padding: 0 40px;
+			margin-top: 8px;
+
+			li {
+				text-align: left;
+				height: 24px;
+				line-height: 24px;
+				margin-bottom: 6px;
+
+				.name {
+					display: inline-block;
+					width: 80px;
+					text-align: left;
+				}
+
+				.stick-wrapper {
+					display: inline-block;
+					width: 450px;
+
+					.stick {
+						min-width: 100px;
+						height: 20px;
+						line-height: 20px;
+						border-radius: 6px;
+						background-color: #452a57;
+						text-align: center;
+					}
+				}
+			}
+		}
+	}
+}

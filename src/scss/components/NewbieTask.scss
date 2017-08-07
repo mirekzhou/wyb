@@ -1,0 +1,170 @@
+@import "../mixins.scss";
+
+.newbie-task {
+	color: $font-color3;
+	padding: 10px 20px;
+	height: 100%;
+	width: 100%;
+
+    $baseL                  :    1300;
+    $baseWidth              :    1300px;
+    $headerHeight           :    $baseWidth * 40 / $baseL;
+    $bodyHeight             :    $baseWidth * 360 / $baseL;
+    $taskItemWidth          :    $baseWidth * 138 / $baseL;
+    $taskItemHeight         :    $baseWidth * 186 / $baseL;
+    $taskItemMagin          :    $baseWidth * 19 / $baseL;
+    $taskItemStatusHeight   :    $baseWidth * 32 / $baseL;
+    $textHilightColor       :    #FFF;
+
+	.icon-question {
+		cursor: pointer;
+		display: inline-block;
+		background-image: url("../img/tc.png");
+		width: 17px;
+		height: 17px;
+		background-position: -104px -8px;
+		vertical-align: middle;
+		margin-left: 8px;
+	}
+
+	.tc-icon-truename {
+		display: inline-block;
+		background-image: url("../img/tc.png");
+		width: 80px;
+		height: 80px;
+		background-position: 0px -64px;
+		vertical-align: middle;
+	}
+
+	.tc-icon-phone {
+		display: inline-block;
+		background-image: url("../img/tc.png");
+		width: 80px;
+		height: 80px;
+		background-position: -90px -64px;
+		vertical-align: middle;
+	}
+
+	.tc-icon-mail {
+		display: inline-block;
+		background-image: url("../img/tc.png");
+		width: 80px;
+		height: 80px;
+		background-position: -180px -64px;
+		vertical-align: middle;
+	}
+
+	.tc-icon-deposit {
+		display: inline-block;
+		background-image: url("../img/tc.png");
+		width: 80px;
+		height: 80px;
+		background-position: -270px -64px;
+		vertical-align: middle;
+	}
+
+	.newbie-task-header {
+		border-bottom: 1px solid #2d1d3b;
+		box-sizing: border-box;
+		font-size: 14px;
+		height: $headerHeight;
+
+		.header-left {
+			float: left;
+			height: $headerHeight;
+			line-height: $headerHeight;
+
+			.text {
+				vertical-align: top;
+			}
+		}
+
+		.header-right {
+			float: right;
+			height: $headerHeight;
+			line-height: $headerHeight;
+		}
+	}
+
+	.newbie-task-body {
+		text-align: left;
+		padding-top: 32px;
+
+		.tasks {
+			li {
+				background-image: url("../img/tc.png");
+				background-position: -437px -258px;
+				border: 1px solid #473055;
+				display: inline-block;
+				height: $taskItemHeight;
+				width: $taskItemWidth;
+				margin-right: $taskItemMagin;
+				position: relative;
+				vertical-align: top;
+				padding-top: 10px;
+
+				&:last-child {
+					margin-right: 0;
+				}
+
+				.task-info {
+					height: $taskItemStatusHeight;
+					line-height: $taskItemStatusHeight;
+					width: 100%;
+					text-align: center;
+
+					.info-name {
+						display: inline-block;
+						margin: 0 10px;
+					}
+				}
+
+				.status {
+					background-color: #6c3a8b;
+					cursor: pointer;
+					height: $taskItemStatusHeight;
+					line-height: $taskItemStatusHeight;
+					width: 100%;
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					text-align: center;
+
+					&:hover {
+						color: $textHilightColor;
+					}
+				}
+
+				.icon-zone {
+					width: 100%;
+					text-align: center;
+					padding-top: 10px;
+				}
+
+				.finished {
+					background-color: #22142c;
+					cursor: default;
+
+					&:hover {
+						color: $font-color3;
+					}
+				}
+			}
+		}
+
+		.body-bottom {
+			padding-top: 40px;
+			width: 100%;
+			text-align: center;
+
+			.get-bonus {
+				@include button1;
+
+				background-color: #2d1d3b;
+				width: 180px;
+				height: 40px;
+				line-height: 40px;
+			}
+		}
+	}
+}

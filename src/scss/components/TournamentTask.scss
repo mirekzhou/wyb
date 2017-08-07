@@ -1,0 +1,136 @@
+@import "../mixins.scss";
+
+.tournament-task {
+	color: $font-color3;
+	padding: 10px 20px;
+	height: 100%;
+	width: 100%;
+
+    $baseL                  :    1300;
+    $baseWidth              :    1300px;
+    $headerHeight           :    $baseWidth * 40 / $baseL;
+    $bodyInfoHeight         :    $baseWidth * 45 / $baseL;
+    $bodyRouteHeight        :    $baseWidth * 320 / $baseL;
+    $textHilightColor       :    #FFF;
+
+	.icon-question {
+		cursor: pointer;
+		display: inline-block;
+		background-image: url("../img/tc.png");
+		width: 17px;
+		height: 17px;
+		background-position: -104px -8px;
+		vertical-align: middle;
+		margin-left: 8px;
+	}
+
+	.tc-icon-refresh {
+		cursor: pointer;
+		display: inline-block;
+		background-image: url("../img/tc.png");
+		width: 17px;
+		height: 17px;
+		background-position: -138px -8px;
+		vertical-align: middle;
+		margin-left: 8px;
+	}
+
+	.tc-icon-tour-start {
+		cursor: pointer;
+		display: inline-block;
+		background-image: url("../img/tc.png");
+		width: 50px;
+		height: 32px;
+		background-position: -259px -190px;
+		vertical-align: middle;
+		margin-left: 8px;
+	}
+
+	.tc-icon-tour-end {
+		cursor: pointer;
+		display: inline-block;
+		background-image: url("../img/tc.png");
+		width: 48px;
+		height: 57px;
+		background-position: -194px -175px;
+		vertical-align: middle;
+		margin-left: 8px;
+	}
+
+	.tournament-task-header {
+		border-bottom: 1px solid #2d1d3b;
+		box-sizing: border-box;
+		font-size: 14px;
+		height: $headerHeight;
+
+		.header-left {
+			float: left;
+			height: $headerHeight;
+			line-height: $headerHeight;
+
+			.text {
+				vertical-align: top;
+			}
+		}
+
+		.header-right {
+			float: right;
+			height: $headerHeight;
+			line-height: $headerHeight;
+		}
+	}
+
+	.tournament-task-body {
+		position: relative;
+
+		.task-info {
+			width: 100%;
+			height: $bodyInfoHeight;
+			line-height: $bodyInfoHeight;
+			text-align: left;
+
+			.task-info-wrapper {
+				background-color: #2d1d3b;
+				border-radius: 20px;
+				display: inline-block;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+				padding: 0 15px;
+
+				.tc-icon-refresh {
+					margin-left: 10px;
+				}
+			}
+		}
+
+		.route {
+			width: 100%;
+			height: $bodyRouteHeight;
+			line-height: $bodyRouteHeight;
+
+			.route-icon {
+				cursor: pointer;
+				display: inline-block;
+				background-image: url("../img/tc.png");
+				width: 420px;
+				height: 280px;
+				background-position: 0 -257px;
+				vertical-align: middle;
+				margin-left: 8px;
+			}
+		}
+
+		.tc-icon-tour-start {
+			position: absolute;
+			bottom: 29px;
+			left: 33px;
+		}
+
+		.tc-icon-tour-end {
+			position: absolute;
+			top: 5px;
+			right: 75px;
+		}
+	}
+}

@@ -1,0 +1,153 @@
+@import "../mixins.scss";
+
+.task-center {
+    @include dialog-frame;
+
+    .dialog-wrapper {
+        $baseL                  :    1300;
+        $baseWidth              :    1300px;
+        $taskCenterWidth        :    $baseWidth * 820 / $baseL;
+        $taskCenterHeight       :    $baseWidth * 470 / $baseL;
+        $headerHeight           :    $baseWidth * 44 / $baseL;
+        $bodyHeight             :    $baseWidth * 426 / $baseL;
+        $treeWidth              :    $baseWidth * 160 / $baseL;
+        $containerWidth         :    $baseWidth * 650 / $baseL;
+        $textHilightColor       :    #FFF;
+
+        @include dialog-wrapper($taskCenterWidth);
+        z-index: 170;
+        top: 50%;
+
+        .tc-icon-flag {
+            cursor: pointer;
+            display: inline-block;
+            background-image: url("../img/tc.png");
+            width: 17px;
+            height: 17px;
+            background-position: -200px -8px;
+            vertical-align: middle;
+        }
+
+        .tc-icon-newbie-task {
+            cursor: pointer;
+            display: inline-block;
+            background-image: url("../img/tc.png");
+            width: 17px;
+            height: 17px;
+            background-position: -9px -41px;
+            vertical-align: middle;
+        }
+
+        .tc-icon-daily-task {
+            cursor: pointer;
+            display: inline-block;
+            background-image: url("../img/tc.png");
+            width: 17px;
+            height: 17px;
+            background-position: -43px -41px;
+            vertical-align: middle;
+        }
+
+        .tc-icon-tournament-task {
+            cursor: pointer;
+            display: inline-block;
+            background-image: url("../img/tc.png");
+            width: 17px;
+            height: 17px;
+            background-position: -73px -41px;
+            vertical-align: middle;
+        }
+
+
+        .dialog {
+            @include dialog($taskCenterWidth, $taskCenterHeight);
+            background-color: #412c4e;
+
+            .dialog-header {
+                color: $font-color3;
+                font-size: 16px;
+                width: 100%;
+                height: $headerHeight;
+
+                .header-left {
+                    font-weight: bold;
+                    float: left;
+                    height: $headerHeight;
+                    line-height: $headerHeight;
+                    padding-left: 10px;
+
+                    .title {
+                        display: inline-block;
+                        margin-left: 10px;
+                    }
+                }
+
+                .header-right {
+                    float: right;
+                    height: $headerHeight;
+                    line-height: $headerHeight;
+                    position: relative;
+
+                    .close {
+                        cursor: pointer;
+                        font-size: 36px;
+                        position: absolute;
+                        right: 10px;
+
+                        &:hover {
+                            color: $textHilightColor;
+                        }
+                    }
+                }
+            }
+
+            .dialog-body {
+                width: 100%;
+                font-size: 14px;
+                height: $bodyHeight;
+                padding: 5px;
+                position: relative;
+
+                .body-tree {
+                    background-color: #2d1d3b;
+                    display: inline-block;
+                    width: $treeWidth;
+                    height: 100%;
+                    vertical-align: top;
+
+                    li {
+                        border-bottom: 1px solid #412c4e;
+                        cursor: pointer;
+                        height: 60px;
+                        line-height: 60px;
+
+                        &:hover {
+                            color: $textHilightColor;
+                        }
+
+                        .task-name {
+                            display: inline-block;
+                            margin-left: 10px;
+                        }
+                    }
+
+                    .selected {
+                        background-color: #241630;
+                        color: #FFF;
+                    }
+                }
+
+                .body-container {
+                    background-color: #170f20;
+                    display: inline-block;
+                    width: $containerWidth;
+                    height: 100%;
+                    vertical-align: top;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1350px) {
+}
