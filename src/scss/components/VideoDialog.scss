@@ -1,0 +1,52 @@
+@import "../mixins.scss";
+
+.video-dialog {
+	@include dialog-frame;
+
+	.dialog-wrapper {
+		@include dialog-wrapper(640px);
+        z-index: 190;
+        top: 50%;
+
+		.dialog {
+			@include dialog(640px, 410px);
+
+			.subtitle {
+			    height: 45px;
+			    line-height: 45px;
+			    border-bottom: 1px solid #2b1f35;
+			    position: relative;
+			    text-align: center;
+
+				.title-name {
+					color: $font-color3;
+					font-size: 16px;
+				}
+
+				.close {
+					position: absolute;
+					right: 15px;
+					top: 15px;
+				    cursor: pointer;
+				    font-size: 25px;
+				    height: 15px;
+				    line-height: 15px;
+
+				    &:hover {
+				    	color: $font-color2;
+				    }
+				}
+			}
+
+			.content {
+				font-size: 14px;
+				padding: 0 10px;
+
+				video {
+					height: 344px;
+					width: 600px;
+				}
+			}
+		}
+	}
+}

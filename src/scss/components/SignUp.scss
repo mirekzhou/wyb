@@ -1,0 +1,151 @@
+@import "../mixins.scss";
+
+.sign-up {
+	@include dialog-frame;
+
+	.dialog-wrapper {
+		@include dialog-wrapper(414px);
+		z-index: 150;
+		top: 50%;
+		padding: 7px;
+
+		.dialog {
+			@include dialog(400px, auto);
+			padding: 0 20px;
+			padding-bottom: 10px;
+
+			.text {
+				display: inline-block;
+				width: 60px;
+				height: 30px;
+				line-height: 30px;
+				text-align: left;
+				vertical-align: top;
+			}
+
+			.error-notice {
+				display: none;
+				width: 100%;
+				font-size: 12px;
+				height: 20px;
+				line-height: 20px;
+				text-align: left;
+				vertical-align: top;
+				margin-top: -5px;
+
+				.star {
+					color: #F00;
+					margin-left: 60px;
+				    position: relative;
+				    top: 4px;
+				    margin-right: 4px;
+				}
+			}
+
+			.row {
+				height: 50px;
+				margin-top: 5px;
+				width: 100%;
+				text-align: left;
+			}
+
+			.has-notice {
+			}
+
+			.row1 {
+				height: 100px;
+				width: 100%;
+				position: relative;
+				text-align: center;
+
+				.logo-icon-small {
+					margin-top: 30px;
+				}
+				
+				.close {
+					cursor: pointer;
+					position: absolute;
+					right: -5px;
+					top: 0px;
+					font-size: 25px;
+					color: #736981;
+				}
+			}
+
+			.verify-row {
+				.verify-code {
+					height: 30px;
+    				margin-left: 20px;
+				}
+
+				.change-verify-code {
+					cursor: pointer;
+					margin-left: 20px;
+					height: 30px;
+					line-height: 30px;
+					vertical-align: top;
+
+					&:hover {
+						color: #FFF;
+					}
+				}
+			}
+
+			.agree-row {
+				height: 30px;
+				text-align: left;
+				margin-left: 60px;
+				margin-top: 0;
+
+				.agree {
+					label {
+						color: #555555;
+						cursor: pointer;
+					    font-size: 12px;
+					    height: 18px;
+					    line-height: 18px;
+					    margin-left: 5px;
+						position: relative;
+						bottom: 2px;
+					}
+				}
+			}
+
+			.button-row {
+				height: 60px;
+				width: 100%;
+				text-align: right;
+				margin-top: 10px;
+
+				.button {
+					@include button1;
+
+					border-radius: 0;
+					width: 300px;
+					height: 35px;
+					line-height: 35px;
+					text-align: center;
+				}
+
+				.active {
+					background-color: #257C51;
+					color: #FFF;
+				}
+				
+				.button-info {
+					color: #555555;
+					cursor: pointer;
+					font-size: 12px;
+					height: 20px;
+					line-height: 20px;
+					text-align: right;
+					margin-top: 5px;
+
+					&:hover {
+						color: $font-hover-color1;
+					}
+				}
+			}
+		}
+	}
+}

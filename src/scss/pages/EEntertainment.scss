@@ -1,0 +1,941 @@
+@import "../mixins.scss";
+
+.e-entertainment {
+	$baseL                  :    1300;
+	$baseWidth              :    1300px;
+	$gap                    :    $baseWidth * 10 / $baseL;
+	$topModuleGap           :    $baseWidth * 10 / $baseL;
+	$topLeftModuleWidth     :    $baseWidth * 270 / $baseL;
+	$topMiddleModuleWidth   :    $baseWidth * 740 / $baseL;
+	$topRightModuleWidth    :    $baseWidth * 270 / $baseL;
+	$topModuleHeight        :    $baseWidth * 330 / $baseL;
+
+	$topLeftHeadHeight      :    $baseWidth * 90 / $baseL;
+	$topLeftUlHeight        :    $baseWidth * 240 / $baseL;
+	$topLeftLiHeight        :    $topLeftUlHeight / 7;
+
+	$topRightTitleHeight    :    $baseWidth * 72 / $baseL;
+	$topRightMoneyHeight    :    $baseWidth * 77 / $baseL;
+	$topRightDrawHeight     :    $baseWidth * 181 / $baseL;
+
+	$middleHeight           :    $baseWidth * 56 / $baseL;
+	$middleItemWidth        :    $baseWidth * 152 / $baseL;
+
+	$bottomLeftModuleWidth  :    $baseWidth * 270 / $baseL;
+	$bottomRightModuleWidth :    $baseWidth - $bottomLeftModuleWidth;
+
+	$gameImageWidth         :    ($bottomRightModuleWidth - 6 * $gap) / 6 - 2px;
+	$gameImageHeight        :    $gameImageWidth;
+
+	$czcjHeadTopGap         :    $baseWidth * 8 / $baseL;
+	$czcjLi1Top             :    $baseWidth * 52 / $baseL;
+	$jackpotsHeadHeight     :    $baseWidth * 73 / $baseL;
+	$amountInfoWidth        :    $baseWidth * 260 / $baseL;
+	$amountInfoHeight       :    $baseWidth * 84 / $baseL;
+	$jackpotsGap            :    $baseWidth * 15 / $baseL;
+	$jackpotsButtonHeight   :    $baseWidth * 42 / $baseL;
+	$jackpotsButtonWidth    :    $baseWidth * 250 / $baseL;
+
+	$searchBoxHeight        :    $baseWidth * 40 / $baseL;
+	$treeLiPaddingLeft      :    $baseWidth * 60 / $baseL;
+	$treeLiHeight           :    $baseWidth * 45 / $baseL;
+	$moreGameHeight         :    $baseWidth * 35 / $baseL;
+
+	@include page-property;
+	width: $baseWidth;
+	margin: 0 auto;
+	height: auto;
+
+	.left {
+		float: left;
+	}
+
+	.wrapper {
+		position: relative;
+		width: $contentWidth;
+
+		.top-module {
+			width: 100%;
+			height: $topModuleHeight;
+
+			.top-left-module {
+				width: $topLeftModuleWidth;
+				height: 100%;
+				transition: all .5s;
+
+				.czcj-head {
+					background-color: $purple1;
+					border-top: 3px solid $yellow2;
+					height: $topLeftHeadHeight;
+					width: 100%;
+					position: relative;
+
+					.title {
+						color: $yellow2;
+						font-size: 28px;
+						font-weight: 700;
+						margin-top: $czcjHeadTopGap;
+						display: inline-block;
+					}
+
+					.marqueen-li1 {
+						font-size: 16px;
+						position: absolute;
+						top: $czcjLi1Top;
+						width: 100%;
+						height: 30px;
+						overflow: hidden;
+
+						.marqueen-li1-wrapper {
+							position: relative;
+							width: 100%;
+							height: auto;
+
+							.row {
+								cursor: pointer;
+								height: 30px;
+								position: absolute;
+								width: 100%;
+
+								.marqueen-li1-game {
+									display: inline-block;
+									float: left;
+									color: #FFF;
+									width: 50%;
+									text-align: center;
+									white-space: nowrap;
+									text-overflow: ellipsis;
+									overflow: hidden;
+								}
+
+								.marqueen-li1-win {
+									display: inline-block;
+									float: left;
+									color: #FFF;
+									width: 50%;
+									text-align: center;
+								}
+
+								&:nth-child(1) {
+									top: 0px;
+								}
+
+								&:nth-child(2) {
+									top: 30px;
+								}
+
+								&:nth-child(3) {
+									top: 60px;
+								}
+							}
+						}
+					}
+				}
+
+				.left-list{
+					background: $purple2;
+					height: $topLeftUlHeight;
+
+					.marqueen{
+						height: $topLeftUlHeight;
+						overflow: hidden;
+						position: relative;
+
+						ul {
+						    position: absolute;
+							top: 0;
+							width: 100%;
+
+							li {
+								cursor: pointer;
+					      		list-style: none;
+					      		height: $topLeftLiHeight;
+					      		line-height: $topLeftLiHeight;
+					      		border-bottom: 1px solid $border-color1;
+
+								p {
+									display: inline-block;
+									width: 50%;
+									text-align: center;
+									color: $font-color0;
+									font-size: 12px;
+								}
+
+					      		&:first-child {
+					      			border-top: 1px solid $border-color1;
+					      		}
+					    	}
+						}
+					}
+				}
+			}
+
+			.middle-banner{
+				width: $topMiddleModuleWidth;
+		    	height: 100%;
+				margin: 0 $topModuleGap;
+				float: left;
+				transition: all .5s;
+				overflow: hidden;
+
+				.sliders {
+					background-color: rgba(0, 0, 0, .3);
+					height: 330px;
+					position: relative;
+
+					li {
+						img {
+							width: 100%;
+						}
+					}
+				}
+
+				.unslider {
+					overflow: hidden;
+				    position: relative;
+
+					.unslider-nav {
+					    position: absolute;
+					    bottom: 10px;
+					    left: 20px;
+
+					    li {
+					    	background-color: #FFF;
+					    	opacity: 0.3;
+					    	height: 8px;
+						    width: 8px;
+					    }
+
+					    .unslider-active {
+					    	opacity: 0.5;
+					    }
+					}
+				}
+			}
+
+			.top-right-module{
+				background: $purple2;
+		    	float: left;
+		    	height: 100%;
+		    	width: $topRightModuleWidth;
+		    	transition: all .5s;
+				
+				.jackpots-title {
+					border-top: 3px solid $yellow2;
+					color: $yellow2;
+					font-size: 42px;
+					font-weight: 700;
+					height: $jackpotsHeadHeight;
+					line-height: $jackpotsHeadHeight;
+					text-align: center;
+					transition: all .3s;
+				}
+
+				.amount-info {
+					background-image: url(../img/jackpot-money-bk.png);
+					background-repeat: no-repeat;
+				    background-size: 100%;
+					color: #FFF;
+					font-size: 16px;
+					text-align: center;
+					background-size: 100%;
+					font-size: 27px;
+					height: $amountInfoHeight;
+					line-height: $amountInfoHeight;
+					width: $amountInfoWidth;
+					margin: 0 auto;
+					position: relative;
+					text-align: center;
+					transition: all .3s;
+
+					.spinner {
+						top: 72%;
+					}
+				}
+
+				.user-info {
+					margin-bottom: $jackpotsGap;
+					margin-top: $jackpotsGap - 3px;
+					color: $font-color0;
+					text-align: center;
+					padding: 0 20px;
+					font-size: 13px;
+
+					p {
+						font-size: 14px;
+						height: 20px;
+						line-height: 20px;
+						width: 100%;
+						
+						.userName {
+							margin-left: 5px;
+						}
+					}
+
+					h3 {
+						margin: 10px 0;
+						font-size: 14px;
+						font-weight: normal;
+					}
+				}
+
+				.button {
+					background: $green;
+					border-radius: 20px;
+					color: #FFF;
+					cursor: pointer;
+					font-size: 16px;
+					font-weight: bold;
+					height: $jackpotsButtonHeight;
+					line-height: $jackpotsButtonHeight;
+					width: $jackpotsButtonWidth;
+					margin-bottom: 14px;
+
+					&:hover {
+						background: #2b8d5d;
+					}
+				}
+
+				button:hover{
+					color: $font-color2;
+				}
+			}
+		}
+
+		.middle-module{
+			height:50px;
+			width: $baseWidth;
+			margin-top: 10px;
+			background: $purple2;
+			line-height:50px;
+			float:left;
+			transition: all .5s;
+
+			li {
+				cursor: pointer;
+				float:left;;
+				list-style: none;
+				color:#fff;
+				height:100%;
+				display: inline-block;
+				padding-left: 20px;
+				margin-left: 20px;
+				z-index: 20;
+
+				&:first-child {
+					margin-left: 0;
+				}
+
+				.img {
+					background: url("../img/platform.png");
+					display: inline-block;
+					width: 33px;
+					height: 100%;
+					overflow: hidden;
+				}
+
+				.name {
+					display: none;
+					width: 100px;
+					height:100%;
+					vertical-align: top;
+					text-align: center;
+				}
+
+				&:hover {
+					.pp-img {
+						background-position: -273px $platform-icon-top2;
+					}
+
+					.pt-img {
+						background-position: -8px $platform-icon-top2;
+					}
+
+					.bbin-img {
+						background-position: -53px $platform-icon-top2;
+					}
+
+					.mg-img {
+						background-position: -98px $platform-icon-top2;
+					}
+
+					.ag-img {
+						background-position: -141px $platform-icon-top2;
+					}
+
+					.ttg-img {
+						background-position: -185px $platform-icon-top2;
+					}
+
+					.mt-img {
+						background-position: -231px $platform-icon-top2;
+					}
+				}
+			}
+
+			.pp-li {
+				.img {
+					background-position: -273px $platform-icon-top1;
+				}
+			}
+
+			.pt-li{
+				.img {
+					background-position: -8px $platform-icon-top1;
+				}
+			}
+
+			.bbin-li{
+				.img {
+					background-position: -53px $platform-icon-top1;
+				}
+			}
+
+			.mg-li{
+				.img {
+					background-position: -98px $platform-icon-top1;
+				}
+			}
+
+			.ag-li{
+				.img {
+					background-position: -141px $platform-icon-top1;
+				}
+			}
+
+			.ttg-li{
+				.img {
+					background-position: -185px $platform-icon-top1;
+				}
+			}
+
+			.mt-li {
+				.img {
+					background-position: -231px $platform-icon-top1;
+				}
+			}
+
+			.selected {
+				background-color: $purple1;
+
+				.name {
+					display: inline-block;
+				}
+
+				.pp-img {
+					background-position: -273px $platform-icon-top2;
+				}
+
+				.pt-img {
+					background-position: -8px $platform-icon-top2;
+				}
+
+				.bbin-img {
+					background-position: -53px $platform-icon-top2;
+				}
+
+				.mg-img {
+					background-position: -98px $platform-icon-top2;
+				}
+
+				.ag-img {
+					background-position: -141px $platform-icon-top2;
+				}
+
+				.ttg-img {
+					background-position: -185px $platform-icon-top2;
+				}
+
+				.mt-img {
+					background-position: -231px $platform-icon-top2;
+				}
+			}
+		}
+
+		.bottom-module{
+			display: inline-block;
+			vertical-align: top;
+			width: 100%; 
+			
+			.bottom-left {
+				width: $bottomLeftModuleWidth;
+				float: left;
+				position: relative;
+				height: 100%;
+				transition: all .5s;
+
+				.search-box {
+					border: 1px solid $border-color1;
+					border-radius: 2px;
+					height: $searchBoxHeight;
+					line-height: $searchBoxHeight;
+					margin: 0 auto;
+					margin-top: $gap;
+					width: 100%;
+
+					.search-btn {
+					    background-image: url(../img/search-star.png);
+					    background-position: -10px -74px;
+					    cursor: pointer;
+					    display: inline-block;
+					    height: $searchBoxHeight;
+					    width: 25px;
+
+					    &:hover {
+					    	background-position: -10px -34px;
+					    }
+					}
+
+					input{
+						width: 75%;
+						background-color: transparent;
+						border: 0;
+						color: #FFF;
+						display: inline-block;
+						float: left;
+						height: $searchBoxHeight - 6px;
+						line-height: $searchBoxHeight - 6px;
+						padding: 2px 0;
+						padding-left: 20px;
+					}
+				}
+
+	 		 	ul {
+	 		 		margin-top: $gap;
+
+					li {
+						height: $treeLiHeight;
+						line-height: $treeLiHeight;
+						display: inline-block;
+						width: 100%;
+						color: $font-color0;
+						border-bottom: 1px solid $border-color1;
+						text-align: left;
+						padding-left: $treeLiPaddingLeft;
+
+						img {
+							width: 24px;
+						    height: 24px;
+						    position: relative;
+						    top: 6px;
+						    right: 15px;
+						}
+
+						&:first-child {
+							border-top: 0;
+						}
+
+						&:hover {
+							cursor: pointer;
+			 			 	color: #FFF;
+						}
+					}
+
+					.selected {
+		 			 	color: #FFF;
+		 			 	border-bottom: 2px solid $red;
+		 		 	}
+
+					.stick{
+						height: 38px;
+						width: 3px;
+						position: absolute;
+						background-color: #cda654;
+						top: 65px;
+						left: 0px;
+						transition: top 0.5s;
+						-moz-transition: top 0.5s;
+						-webkit-transition: top 0.5s;
+					}
+	 		 	}
+			}
+
+			.bottom-right {
+				float: left;
+				color: $font-color0;
+				width: $bottomRightModuleWidth;
+				transition: all .5s;
+				padding-bottom: 20px;
+
+				ul {
+					float:left;
+					height: auto;
+		    		overflow: hidden;
+
+					li {
+						list-style:none;
+						float:left;
+						border:1px solid #3a2f46;
+						position:relative;
+						width: $gameImageWidth + 2px;
+						height: $gameImageHeight + 30px;
+						margin-left: $gap;
+						margin-top: $gap;
+						overflow: hidden;
+						transition: all .3s;
+						transform: scale(0.5);
+
+						&:hover {
+							border:1px solid $green;
+
+							p {
+								.game-name {
+									color: $font-color0;
+								}
+							}
+						}
+
+						.start-game {
+							background-color: $green;
+							position: absolute;
+							transition: left .2s ease-out;
+						}
+
+						.try-game {
+							background-color: rgba(0,0,0,.4);
+							position: absolute;
+							transition: right .2s ease-out;
+							margin-top: 30px;
+						}
+
+						.img {
+							background-position: 50% 50%;
+							background-size: 100%;
+							background-repeat: no-repeat;
+							box-shadow: 0 -30px 90px #07080e inset;
+							position: relative;
+							transition: all .3s;
+							width: $gameImageWidth;
+							height: $gameImageHeight;
+						}
+
+						.hover-layer-none {
+							visibility: hidden;
+							position: relative;
+
+							.start-game {
+								left: 0;
+								margin-left: -30px;
+							}
+
+							.try-game {
+								right: 0;
+								margin-right: -30px;
+							}
+						}
+
+						.hover-layer {
+							background-color: rgba(0, 0, 0, 0.7);
+							width: 100%;
+							height: $gameImageHeight;
+							position: absolute;
+							left: 0;
+							top: 0;
+							z-index: 1;
+							text-align: center;
+							visibility: visible;
+
+							button {
+								top:60px;
+								width:60px;
+								height:25px;
+								cursor: pointer;
+								color: #FFF;
+							}
+
+							.start-game {
+								left: 50%;
+								margin-left: -30px;
+							}
+
+							.try-game {
+								right: 50%;
+								margin-right: -30px;
+							}
+						}
+						
+						p {
+							height:30px;
+							line-height:30px;
+							padding:0 5px;
+
+							.game-name {
+								display:inline-block;
+								float: left;
+								height: 30px;
+	    						text-align: left;
+	    						overflow: hidden;
+	    						white-space: nowrap;
+	    						text-overflow: ellipsis;
+	    						vertical-align: top;
+	    						max-width: 90px;
+							}
+
+							.recommend-no {
+								color: $font-color0;
+								display: inline-block;
+								font-weight: bold;
+								float: right;
+								margin-right: 3px;
+								vertical-align: top;
+							}
+
+							.collect {
+								background-image: url("../img/search-star.png");
+								background-position: -45px -4px;
+								cursor: pointer;
+								display: inline-block;
+								float: right;
+								height: 23px;
+								width: 20px;
+							}
+
+							.collected {
+								background-position: -45px -113px;
+							}
+
+							img {
+								cursor: pointer;
+								width: 20px;
+								height: 20px;
+								margin-left:5px;
+								vertical-align: sub;
+								transition: transform .3s;
+
+								&:hover {
+									transform: scale(1.5);
+								}
+							}
+						}
+
+						.jackpot-value-span {
+							position: absolute;
+							width: 100%;
+							font-size: 14px;
+							height: 30px;
+							background-color: rgba(40, 21, 47, .7);
+							transition: top .3s;
+							top: 0;
+							left: 0;
+							z-index: 2;
+						}
+					}
+
+					.zoom-big {
+						transform: scale(1);
+					}
+				}
+
+				.more-game {
+					cursor: pointer;
+					float: left;
+	    			width: $bottomRightModuleWidth - $gap;
+	    			margin-left: $gap;
+					text-align:center;
+					margin-top: 15px;
+					height: $moreGameHeight;
+					line-height: $moreGameHeight;
+					border: 1px solid $border-color1;
+					color: $font-color0;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1300px) {
+	.e-entertainment {
+		$baseL                  :    1300;
+		$baseWidth              :    1000px;
+		$gap                    :    $baseWidth * 10 / $baseL;
+		$topModuleGap           :    $baseWidth * 10 / $baseL;
+		$topLeftModuleWidth     :    floor($baseWidth * 270 / $baseL);
+		$topMiddleModuleWidth   :    floor($baseWidth * 740 / $baseL);
+		$topRightModuleWidth    :    floor($baseWidth * 270 / $baseL);
+		$topModuleHeight        :    $baseWidth * 330 / $baseL;
+
+		$topLeftHeadHeight      :    $baseWidth * 90 / $baseL;
+		$topLeftUlHeight        :    $baseWidth * 240 / $baseL;
+		$topLeftLiHeight        :    $topLeftUlHeight / 7;
+
+		$topRightTitleHeight    :    $baseWidth * 72 / $baseL;
+		$topRightMoneyHeight    :    $baseWidth * 77 / $baseL;
+		$topRightDrawHeight     :    $baseWidth * 181 / $baseL;
+
+		$middleHeight           :    $baseWidth * 56 / $baseL;
+		$middleItemWidth        :    $baseWidth * 152 / $baseL;
+
+		$bottomLeftModuleWidth  :    $baseWidth * 270 / $baseL;
+		$bottomRightModuleWidth :    $baseWidth - $bottomLeftModuleWidth;
+
+		$gameImageWidth         :    floor(($bottomRightModuleWidth - 6 * $gap) / 6 - 2px);
+		$gameImageHeight        :    $gameImageWidth;
+
+		$czcjHeadTopGap         :    $baseWidth * 8 / $baseL;
+		$czcjLi1Top             :    $baseWidth * 52 / $baseL;
+		$jackpotsHeadHeight     :    $baseWidth * 73 / $baseL;
+		$amountInfoWidth        :    $baseWidth * 260 / $baseL;
+		$amountInfoHeight       :    $baseWidth * 84 / $baseL;
+		$jackpotsGap            :    $baseWidth * 15 / $baseL;
+		$jackpotsButtonHeight   :    $baseWidth * 42 / $baseL;
+		$jackpotsButtonWidth    :    $baseWidth * 250 / $baseL;
+
+		$searchBoxHeight        :    $baseWidth * 40 / $baseL;
+		$treeLiPaddingLeft      :    $baseWidth * 60 / $baseL;
+		$treeLiHeight           :    $baseWidth * 45 / $baseL;
+		$moreGameHeight         :    $baseWidth * 35 / $baseL;
+
+		width: $baseWidth;
+
+		.wrapper {
+			width: $contentWidth;
+
+			.top-module {
+				height: $topModuleHeight;
+
+				.top-left-module {
+					width: $topLeftModuleWidth;
+
+					.czcj-head {
+						height: $topLeftHeadHeight;
+
+						.title {
+							font-size: 20px;
+							margin-top: $czcjHeadTopGap;
+						}
+
+						.marqueen-li1 {
+							top: $czcjLi1Top - 3px;
+						}
+					}
+
+					.left-list{
+						height: $topLeftUlHeight;
+
+						.marqueen{
+							height: $topLeftUlHeight;
+
+							ul {
+								li {
+						      		height: $topLeftLiHeight;
+						      		line-height: $topLeftLiHeight;
+						    	}
+							}
+						}
+					}
+				}
+
+				.middle-banner{
+					width: $topMiddleModuleWidth;
+					margin: 0 $topModuleGap;
+				}
+
+				.top-right-module{
+			    	width: $topRightModuleWidth;
+					
+					.jackpots-title {
+						font-size: 30px;
+						height: $jackpotsHeadHeight;
+						line-height: $jackpotsHeadHeight;
+					}
+
+					.amount-info {
+						font-size: 22px;
+						height: $amountInfoHeight;
+						line-height: $amountInfoHeight;
+						width: $amountInfoWidth;
+					}
+
+					.user-info {
+						margin-bottom: $jackpotsGap;
+						margin-top: $jackpotsGap - 3px;
+
+						p {
+							font-size: 12px;
+						}
+
+						h3 {
+							font-size: 12px;
+						}
+					}
+
+					.button {
+						font-size: 14px;
+						height: $jackpotsButtonHeight;
+						line-height: $jackpotsButtonHeight;
+						width: $jackpotsButtonWidth;
+					}
+				}
+			}
+
+			.middle-module {
+				width: $baseWidth;
+			}
+
+			.bottom-module {
+				.bottom-left {
+					width: $bottomLeftModuleWidth;
+
+					.search-box {
+						height: $searchBoxHeight;
+						line-height: $searchBoxHeight;
+						margin-top: $gap;
+
+						.search-btn {
+						    background-position: -10px -78px;
+						    height: $searchBoxHeight;
+
+						    &:hover {
+						    	background-position: -10px -38px;
+						    }
+						}
+
+						input{
+							height: $searchBoxHeight - 6px;
+							line-height: $searchBoxHeight - 6px;
+						}
+					}
+
+		 		 	ul {
+		 		 		margin-top: $gap;
+
+						li {
+							height: $treeLiHeight;
+							line-height: $treeLiHeight;
+							padding-left: $treeLiPaddingLeft;
+						}
+		 		 	}
+				}
+
+				.bottom-right {
+					width: $bottomRightModuleWidth;
+
+					ul {
+						li {
+							width: $gameImageWidth + 2px;
+							height: $gameImageHeight + 30px;
+							margin-left: $gap;
+							margin-top: $gap;
+
+							.img {
+								width: $gameImageWidth;
+								height: $gameImageHeight;
+							}
+
+							.hover-layer {
+								height: $gameImageHeight;
+							}
+						}
+					}
+
+					.more-game {
+		    			width: $bottomRightModuleWidth - $gap;
+		    			margin-left: $gap;
+						height: $moreGameHeight;
+						line-height: $moreGameHeight;
+					}
+				}
+			}
+		}
+	}
+}

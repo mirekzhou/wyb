@@ -1,0 +1,102 @@
+@import "../mixins.scss";
+
+.ie-dialog {
+	.dialog-wrapper {
+	    display: block;
+	    position: fixed;
+	    width: 680px;
+	    height: 420px;
+	    z-index: 140;
+        z-index: 10000;
+        top: 50%;
+	    left: 50%;
+	    margin-top: -210px;
+	    margin-left: -340px;
+
+		.dialog {
+		    background-color: $pc-bk-color2;
+		    border-radius: 5px;
+		    color: $font-color1;
+		    font-size: 14px;
+		    height: 420px;
+		    margin: 0 auto;
+		    position: relative;
+		    width: 680px;
+
+			.title {
+				font-size: 20px;
+				height: 100px;
+				line-height: 100px;
+			}
+
+			.content {
+				color: #9e96a9;
+				font-size: 15px;
+				width: 100%;
+				line-height: 30px;
+			    padding: 0 65px;
+			    text-align: center;
+			    word-break: break-all;
+			}
+
+			ul {
+				margin-top: 50px;
+
+				.browser-icon {
+					background-image: url("../img/browser.png");
+					cursor: pointer;
+					display: inline-block;
+					height: 65px;
+					width: 65px;
+				}
+
+				.chrome-icon {
+					background-position: -15px -20px;
+				}
+
+				.firefox-icon {
+					background-position: -133px -20px;
+				}
+
+				.ie-icon {
+					background-position: -253px -20px;
+				}
+			
+				li {
+					width: 33.33%;
+					height: 100px;
+					display: inline-block;
+					text-align: center;
+
+					.browser-name {
+						font-size: 14px;
+						height: 50px;
+						line-height: 50px;
+					}
+
+					.browser-button {	
+						color: $green;
+						cursor: pointer;
+						height: 35px;
+						line-height: 35px;
+						width: 120px;
+						text-align: center;
+						border: 1px solid $green;
+						border-radius: 20px;
+						display: inline-block;
+
+						&:hover {
+							background-color: $green;
+							color: #FFF;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	& + .overlay10 {
+		visibility: visible;
+		opacity: 1;
+	}
+}

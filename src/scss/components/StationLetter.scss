@@ -1,0 +1,137 @@
+@import "../mixins.scss";
+
+.station-letter {
+	@include tab-page;
+
+	$upHeight               :      32px;
+	$downHeight             :      63px;
+	$buttonLeftGap          :      35px;
+
+	display: block;
+	font-size: 14px;
+	padding: 25px 0;
+
+	.bar-zone {
+		width: 100%;
+		padding-left: 20px;
+		padding-right: 20px;
+
+		.up {
+			color: $font-color1;
+			height: $upHeight;
+			line-height: $upHeight;
+			margin-bottom: 35px;
+
+			.time-section {
+				display: inline-block;
+				float: left;
+				height: $upHeight;
+				line-height: $upHeight;
+
+				input {
+					background: transparent;
+					border: 1px solid $border-color1;
+					color: $font-color1;
+					height: 27px;
+					width: 130px;
+					text-align: center;
+				}
+
+				.title {
+					margin-right: 5px;
+				}
+
+				.divider {
+					padding: 0 5px;
+				}
+			}
+
+			ul {
+				@include shortcut-date;
+			}
+
+			.button {
+				background: 0;
+				border: 1px solid $green;
+				border-radius: 20px;
+				float: left;
+				margin-left: $buttonLeftGap;
+				margin-top: 3px;
+			}
+		}
+
+		.down {
+			height: $downHeight;
+			line-height: $downHeight;
+			text-align: left;
+
+			.text {
+				color: $font-color1;
+			}
+
+			.value {
+				color: $font-color1;
+			}
+		}
+	}
+
+	.table-zone {
+		position: relative;
+		width: 100%;
+
+		table {
+			@include table;
+
+			tbody {
+				tr {
+					cursor: pointer;
+					
+					td {
+						color: $font-color1;
+
+						p {
+							color: #FFF;
+							text-align: left;
+						}
+
+						input {
+							cursor: pointer;
+						}
+					}
+				}
+
+				.readed {
+					td {
+						p {
+							color: $font-color1;
+						}
+					}
+				}
+			}
+		}
+
+		.operations {
+		    color: $font-color1;
+		    font-size: 12px;
+		    position: absolute;
+		    bottom: 12px;
+		    left: 20px;
+
+		    input {
+			    cursor: pointer;
+			    position: relative;
+			    top: 2px;
+		    }
+
+		    label {
+		    	cursor: pointer;
+		    	margin-left: 6px;
+		    }
+
+		    span {
+		    	cursor: pointer;
+		    	margin-left: 25px;
+		    }
+		}
+	}
+}

@@ -1,0 +1,145 @@
+@import "../mixins.scss";
+
+.set-email-dialog {
+	@include dialog-frame;
+
+	.dialog-wrapper {
+		@include dialog-wrapper(450px);
+		z-index: 180;
+		top: 50%;
+
+		.dialog {
+			@include dialog(450px, 300px);
+
+			.title {
+				font-size: 16px;
+			    height: 45px;
+			    line-height: 45px;
+			    border-bottom: 1px solid $border-color2;
+			    text-align: center;
+			}
+
+			.content {
+				margin-top: 40px;
+				width: 100%;
+
+				.cont {
+					display: none;
+				}
+
+				.validate-content {
+					display: block;
+
+					table {
+						padding: 0 20px;
+						width: 100%;
+
+						tr {
+							height: 40px;
+							line-height: 40px;
+							margin-top: 30px;
+
+							td {
+								text-align: left;
+
+								.input {
+									vertical-align: middle;
+
+									.warning-icon {
+										top: 10px;
+									}
+								}
+
+								.button {
+									@include button1;
+									margin-left: 25px;
+								}
+							}
+
+							.text {
+								text-align: left;
+								width: 70px;
+							}
+
+							&:nth-child(2) {
+								td {
+									padding-top: 20px;
+								}
+							}
+						}
+					}
+
+					.buttons {
+						display: inline-block;
+						margin: 0 auto;
+						margin-top: 35px;
+
+						.button {
+							@include button1;
+
+							&:last-child {
+								margin-left: 20px;
+							}
+						}
+					}
+				}
+
+				.modify-content {
+					table {
+						padding: 0 20px;
+						width: 100%;
+						margin-top: 70px;
+
+						tr {
+							height: 40px;
+							line-height: 40px;
+							margin-top: 30px;
+
+							td {
+								text-align: left;
+
+								.input {
+									vertical-align: middle;
+
+									.warning-icon {
+										top: 10px;
+									}
+								}
+
+								.button {
+									@include button1;
+									margin-left: 25px;
+								}
+							}
+
+							.text {
+								text-align: left;
+								width: 70px;
+							}
+
+							&:nth-child(2) {
+								td {
+									padding-top: 20px;
+								}
+							}
+						}
+					}
+
+					.buttons {
+						display: inline-block;
+						margin: 0 auto;
+						margin-top: 50px;
+
+						.button {
+							@include button1;
+
+							&:last-child {
+								margin-left: 20px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

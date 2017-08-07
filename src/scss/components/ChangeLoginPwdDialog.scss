@@ -1,0 +1,69 @@
+@import "../mixins.scss";
+
+.change-login-pwd-dialog {
+	@include dialog-frame;
+
+	.dialog-wrapper {
+		$gap  :  20px;
+
+		@include dialog-wrapper(380px);
+		z-index: 170;
+		top: 50%;
+
+		.dialog {
+			@include dialog(380px, 280px);
+
+			.row0 {
+				border-bottom: 1px solid #2b1f35;
+				color: $font-color0;
+				height: 40px;
+				line-height: 40px;
+				width: 100%;
+				text-align: center;
+			}
+
+			.row {
+				color: $font-color1;
+				height: 35px;
+				margin-top: $gap;
+				width: 100%;
+				text-align: center;
+
+				.title {
+					display: inline-block;
+					height: 35px;
+					line-height: 35px;
+					width: 70px;
+				    vertical-align: top;
+				    position: relative;
+				    bottom: 2px;
+				}
+
+				input {
+					color: $font-color1;
+				}
+			}
+
+			.btn-row {
+				margin-top: $gap;
+				width: 100%;
+				text-align: center;
+
+				.button {
+					@include button1;
+					height: 35px;
+					line-height: 35px;
+					
+					&:first-child {
+						margin-right: $gap;
+					}
+				}
+
+				.active {
+					background-color: $green;
+					color: #FFF;
+				}
+			}
+		}
+	}
+}

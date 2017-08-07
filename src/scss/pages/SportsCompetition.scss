@@ -1,0 +1,184 @@
+@import "../mixins.scss";
+
+.sports-competition {
+	@include page-property;
+
+	.wrapper {
+		$baseL                   :       1300;
+		$baseWidth               :       1300px;
+		$picture-height          :       $baseWidth * 330 / $baseL;
+		$picture1-width          :       $baseWidth * 645 / $baseL;
+		$picture2-width          :       $baseWidth * 645 / $baseL;
+		$sports-gap              :       $baseWidth * 10 / $baseL;
+		$info-height             :       $baseWidth * 100 / $baseL;
+		$left1                   :       $baseWidth * 45 / $baseL;
+		$left2                   :       $baseWidth * 45 / $baseL;
+		$button-right            :       $baseWidth * 20 / $baseL;
+		$title-bottom            :       $baseWidth * 20 / $baseL;
+		$button-bottom           :       $baseWidth * 10 / $baseL;
+
+		.unslider {
+			overflow: hidden;
+		    position: relative;
+
+			.sliders {
+				min-height: 228px;
+
+				li {
+					img {
+						cursor: pointer;
+						width: 100%;
+					}
+				}
+			}
+
+			.unslider-nav {
+				display: none;
+			    position: absolute;
+			    bottom: 10px;
+			    left: 20px;
+
+			    li {
+			    	height: 10px;
+				    width: 10px;
+			    }
+			}
+		}
+
+		.content {
+			margin-top: $sports-gap - 2px;
+
+			.picture {
+				display: inline-block;
+				height: $picture-height;
+				position: relative;
+				overflow: hidden;
+				transition: all .3s;
+
+				img {
+					width: 100%;
+				}
+
+				.info {
+					height: $info-height;
+					position: absolute;
+					left: 0;
+					bottom: 0;
+					width: 100%; 
+					text-align: left;
+
+					p {
+						color: $font-color0;
+						height: $info-height / 2;
+						line-height: $info-height / 2;
+						width: 100%;
+						white-space: nowrap;
+						padding-left: $left2;
+						text-overflow: ellipsis;
+						overflow: hidden;
+					}
+
+					.title {
+						color: $red;
+						font-size: 16px;
+						font-weight: bold;
+						left: $left2;
+						position: absolute;
+						bottom: $title-bottom;
+					}
+
+					.button {
+						background-color: rgba(168, 11, 66, .5);
+						border: none;
+						border-radius: 20px;
+						color: #FFF;
+					    display: inline-block;
+					    font-weight: normal;
+					    height: 35px;
+					    line-height: 35px;
+					    position: absolute;
+					    right: $button-right;
+					    bottom: $button-bottom;
+					    width: 120px;
+
+					    &:hover {
+					    	background-color: $red;
+					    	color: #FFF;
+					    }
+					}
+				}
+			}
+
+			.picture1 {
+				width: $picture1-width;
+			}
+
+			.picture2 {
+				margin-left: $sports-gap;
+				width: $picture2-width;
+			}
+		}
+
+		iframe {
+		    width: 100%;
+		    border: 0;
+		    min-height: 600px;
+		}
+	}
+}
+
+@media screen and (max-width: 1300px) {
+	.sports-competition {
+		.wrapper {
+			$baseL                   :       1300;
+			$baseWidth               :       1000px;
+			$picture-height          :       $baseWidth * 330 / $baseL;
+			$picture1-width          :       $baseWidth * 645 / $baseL;
+			$picture2-width          :       $baseWidth * 645 / $baseL;
+			$sports-gap              :       $baseWidth * 10 / $baseL;
+			$info-height             :       $baseWidth * 100 / $baseL;
+			$left1                   :       $baseWidth * 45 / $baseL;
+			$left2                   :       $baseWidth * 45 / $baseL;
+			$button-right            :       $baseWidth * 20 / $baseL;
+			$title-bottom            :       $baseWidth * 20 / $baseL;   
+			$button-bottom           :       $baseWidth * 10 / $baseL; 
+		
+			.content {
+				margin-top: $sports-gap - 2px;
+
+				.picture {
+					height: $picture-height;
+
+					.info {
+						height: $info-height;
+
+						p {
+							height: $info-height / 2;
+							line-height: $info-height / 2;
+							padding-left: $left2;
+						}
+
+						.title {
+							left: $left2;
+							bottom: $title-bottom;
+						}
+
+						.button {
+						    right: $button-right;
+						    bottom: $button-bottom;
+						}
+					}
+				}
+
+				.picture1 {
+					width: $picture1-width;
+				}
+
+				.picture2 {
+					margin-left: $sports-gap;
+					width: $picture2-width;
+				}
+			}
+		}
+	}
+}

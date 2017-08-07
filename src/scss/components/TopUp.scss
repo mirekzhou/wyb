@@ -1,0 +1,270 @@
+@import "../mixins.scss";
+
+.top-up {
+	@include tab-page;
+	display: block;
+	font-size: 14px;
+
+    $baseL                  :    1300;
+    $baseWidth              :    1300px;
+    $bankWidth              :    180px;
+    $bankHeight             :    45px;
+    $gap                    :    20px;
+
+	.row1 {
+		ul {
+			li {
+				background-color: $pc-bk-color1;
+				border-right: 1px solid $pc-bk-color2;
+				cursor: pointer;
+				color: $font-color1;
+				display: inline-block;
+				font-size: 14px;
+				height: 32px;
+				line-height: 32px;
+				width: 120px;
+				text-align: center;
+
+				&:last-child {
+					border-right: none;					
+				}
+			}
+
+			.selected {
+				background-color: #3b384a;
+				color: #FFF;
+			}
+		}
+	}
+
+	.content {
+		.bank-topup {
+			.select {
+				margin-top: $gap * 2;
+			}
+
+			table {
+				background: -webkit-linear-gradient(top, #282738, #1e1d2b);
+				background: -moz-linear-gradient(top, #282738, #1e1d2b);
+				background: linear-gradient(top, #282738, #1e1d2b);
+
+				border: none;
+				border-radius: 10px;
+				color: $font-color1;
+				font-size: 12px;
+				padding: 20px;
+			    width: 320px;
+			    height: 180px;
+				margin-top: $gap;
+
+				tr {
+					height: 35px;
+					line-height: 35px;
+
+					.name {
+						width: 25%;
+					}
+
+					.value {
+						text-align: left;
+						width: 75%;
+					}
+
+					.left {
+						float: left;
+					}
+
+					.right {
+						float: right;
+						margin-right: 10px;
+					}
+
+					.copy {
+						cursor: pointer;
+						
+						&:hover {
+							color: #FFF;
+						}
+					}
+				}
+			}
+
+			.deposit-method {
+				margin-top: $gap;
+
+				.title {
+					color: $font-color1;
+					font-size: 12px;
+				}
+
+				ul {
+					display: inline-block;
+					margin-left: $gap;
+
+					li {
+						cursor: pointer;
+						display: inline-block;
+						margin-left: 10px;
+
+						label {
+							color: $font-color1;
+							cursor: pointer;
+							font-size: 12px;
+						}
+
+						input {
+							opacity: 0.5;
+						    position: relative;
+						    top: 2px;
+						}
+					}
+
+					.active {
+						label {
+							color: #FFF;
+						}
+
+						input {
+							opacity: 1;
+						}
+					}
+				}
+			}
+
+			.payment-counter {
+				display: none;
+				margin: 10px 0;
+				
+				.text {
+					color: $font-color1;
+					display: inline-block;
+					font-size: 12px;
+					height: 30px;
+					line-height: 30px;
+					bottom: 0;
+					position: relative;
+					margin-right: 10px;
+				}
+
+				.select {
+					width: 150px;
+					margin-left: 27px;
+
+					&:last-child {
+						margin-left: 20px;						
+					}
+				}
+
+				.input {
+				    position: relative;
+				    top: 9px;
+				    margin-left: 10px;
+				}
+			}
+		}
+	}
+
+	.bank-cards {
+		margin-top: 20px;
+
+		.title {
+			color: $font-color1;
+			height: 30px;
+			line-height: 30px;
+		}
+
+		ul {
+			max-height: 150px;
+			overflow-y: hidden;
+
+			li {
+				background-color: #FFF;
+				cursor: pointer;
+				display: inline-block;
+			    height: $bankHeight;
+			    line-height: $bankHeight;
+			    width: $bankWidth;
+				margin-right: 20px;
+				margin-top: 20px;
+				text-align: center;
+				overflow: hidden;
+				position: relative;
+
+				&:hover {
+					.card-overlay {
+						display: none;
+					}
+				}
+
+				input[type='radio'] {
+					position: absolute;
+					top: 14px;
+					left: 9px;
+				}
+
+				.bankLogo {
+					margin-top: 5px;
+				}
+
+				.card-overlay {
+					background: rgba(0, 0, 0, .4);
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					left: 0;
+					right: 0;
+				}
+			}
+
+			.selected {
+				.card-overlay {
+					display: none;
+				}
+			}
+		}
+	}
+
+	.see-more {
+		color: #00A9E7;
+		cursor: pointer;
+		height: 30px;
+		line-height: 30px;
+		margin-top: 10px;
+	}
+
+	.row4 {
+		margin-top: 20px;
+
+		.text {
+			color: $font-color1;
+			display: inline-block;
+			height: 30px;
+			line-height: 30px;
+			bottom: 8px;
+			position: relative;
+			margin-right: 34px;
+		}
+
+		.unit {
+			color: $font-color1;
+			margin-left: 10px;
+		}
+
+		.input-notice {
+			color: $font-color1;
+			font-size: 12px;
+			height: 20px;
+			line-height: 20px;
+			margin-left: 85px;
+		}
+	}
+
+	.row5 {
+		margin-top: 28px;
+
+		.button {
+			margin-left: 90px;
+            @include button1;
+		}
+	}
+}

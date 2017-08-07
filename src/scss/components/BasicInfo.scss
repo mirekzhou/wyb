@@ -1,0 +1,114 @@
+@import "../mixins.scss";
+
+.basic-info {
+	@include tab-page;
+	display: block;
+
+	$gap         :   30px;
+	$textWidth   :   90px;
+
+	.wrapper {
+		width: 100%;
+		position: relative;
+		box-sizing: border-box;
+
+		.row {
+			height: 30px;
+			line-height: 30px;
+		}
+
+		.text {
+			color: $font-color1;
+			display: inline-block;
+			font-size: 14px;
+			text-align: left;
+			vertical-align: top;
+			width: $textWidth;
+		}
+
+		.row1 {
+			.text {
+				bottom: 12px;
+			}
+
+			.contactcs {
+				margin-left: 20px;
+				cursor: pointer;
+				width: auto;
+			}
+		}
+
+		.row2 {
+			margin-top: $gap;
+			
+			label {
+				margin-right: 10px;
+				color: $font-color1;
+			}
+		}
+
+		.row3 {
+			margin-top: $gap;
+
+			.birthday {
+				background: transparent;
+			    border: 1px solid $border-color1;
+			    box-sizing: border-box;
+			    color: $font-color1;
+			    height: 27px;
+			    line-height: 27px;
+			    padding: 0 10px;
+			    text-align: left;
+			    width: 200px;
+			}
+			
+			.contactcs {
+				margin-left: 20px;
+				cursor: pointer;
+				width: auto;
+			}
+		}
+
+		.row4 {
+			margin-top: $gap;
+
+			.select {
+				margin-right: $gap;
+			}
+		}
+
+		.row5 {
+			height: 100px;
+			line-height: 100px;
+			margin-top: $gap;
+
+			.text {
+				bottom: 50px;
+			}
+
+			textarea {
+				background: transparent;
+			    border: 1px solid $border-color1;
+			    color: $font-color1;
+				height: 100px;
+				width: 425px;
+			}
+		}
+
+		.row6 {
+			margin-top: $gap;
+			padding-left: $textWidth;
+			width: 100%;
+
+			.button {
+				@include button1;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1350px) {
+	.basic-info {
+		font-size: 13px;
+	}
+}

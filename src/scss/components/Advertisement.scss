@@ -1,0 +1,117 @@
+@import "../mixins.scss";
+
+.advertisement {
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 999;
+	text-align: center;
+	min-width: 1000px;
+
+	img {
+		width: 100%;
+		min-width: 1000px;
+	}
+
+	.close {
+		cursor: pointer;
+		position: absolute;
+		top: 32%;
+		right: 10px;
+		font-size: 40px;
+		color: #5d5f71;
+
+		&:hover {
+			color: #CCC;
+		}
+	}
+
+	.video-zone {
+		position: absolute;
+		width: 30%;
+		left: 50%;
+		margin-left: -15%;
+		margin-top: 17%;
+		bottom: 5%;
+		z-index: 1000;
+
+		.title {
+			cursor: pointer;
+			color: #FFF;
+			font-size: 18px;
+			height: 25px;
+			line-height: 25px;
+			margin-bottom: 15px;
+
+			&:hover {
+				color: $green;
+			}
+		}
+
+		video {
+			width: 100%;
+		}
+	}
+}
+
+.advertise-overlay {
+    background: #090908;
+    bottom: 0;
+    color: #FFF;
+    left: 0;
+    opacity: 0.8;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 998;
+}
+
+@media screen and (max-width: 1600px) {
+	.advertisement {
+		.video-zone {
+			.title {
+				font-size: 16px;
+			}
+		}
+	}
+};
+
+@media screen and (max-width: 1500px) {
+	.advertisement {
+		.video-zone {
+			.title {
+				font-size: 14px;
+				margin-bottom: 10px;
+			}
+		}
+	}
+};
+
+@media screen and (max-width: 1300px) {
+	.advertisement {
+		.video-zone {
+			.title {
+				font-size: 12px;
+				margin-bottom: 5px;
+			}
+		}
+	}
+};
+
+@media screen and (max-width: 1200px) {
+	.advertisement {
+		.video-zone {
+			.title {
+				font-size: 12px;
+				margin-bottom: 0px;
+			}
+		}
+	}
+};
+
+@media screen and (min-width: 0px) and (max-width: 1000px) {
+	body {
+		overflow-x: auto;	
+	}
+}

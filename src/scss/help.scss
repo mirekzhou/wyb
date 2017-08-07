@@ -1,0 +1,204 @@
+@import "mixins.scss";
+
+body {
+	background-color: $purple1;	
+}
+
+.help-center {
+	@include page-property;
+	background-image: -webkit-radial-gradient(circle at top, #562d60 35%, #070C12);
+	background-image: radial-gradient(circle at top, #562d60 35%, #070C12);
+	display: block;
+	margin-top: 40px;
+
+	.wrapper {
+		margin: 0 auto;
+
+		$baseL                   :       1300;
+		$baseWidth               :       1300px;
+		$gap                     :       $baseWidth * 10 / $baseL;
+		$treeWidth               :       $baseWidth * 200 / $baseL;
+		$downloadContentWidth    :       $baseWidth - $treeWidth;
+
+		$contentHeight           :       620px;
+		$treeHeaderHeight        :       110px;
+		$treeItemHeight          :       50px;
+
+		.content {
+			margin-top: $gap - 5px;
+
+			.tree {
+				background-color: $purple1;
+				color: #b2acba;
+				display: inline-block;
+				height: 100%;
+				vertical-align: top;
+				width: $treeWidth;
+
+				.tree-title {
+					border-bottom: 1px solid $border-color2;
+					display: inline-block;
+					height: $treeHeaderHeight;
+				    text-align: left;
+				    padding-left: 30px;
+				    width: 100%;
+
+					.cn-title {
+						color: $font-color3;
+						font-size: 20px;
+						margin-top: 25px;
+						height: 30px;
+						line-height: 30px;
+					}
+
+					.en-title {
+						font-size: 12px;
+						color: #ababab;
+						height: 30px;
+						line-height: 30px;
+					}
+				}
+
+				ul {
+					display: inline-block;
+					position: relative;
+					width: 100%;
+
+					li {
+						border-bottom: 1px solid $border-color2;
+						cursor: pointer;
+						font-size: 14px;
+						height: $treeItemHeight;
+						line-height: $treeItemHeight;
+						text-align: center;
+						transition: top 0s;
+					    text-align: left;
+					    padding-left: 30px;
+
+						.download-icon {
+							background-image: url("../img/download.png");
+							background-repeat: no-repeat;
+							display: inline-block;
+							height: 25px;
+							vertical-align: top;
+							margin-top: ($treeItemHeight - 25px) / 2;
+							width: 150px;
+						}
+
+						&:hover {
+							background-color: $border-color2;
+						}
+					}
+
+					.active {
+						background-color: $border-color2;
+					}
+
+					.stick {
+						background-color: $red;
+						position: absolute;
+						width: 3px;
+						height: $treeItemHeight;
+						left: 0;
+						top: 0;
+						transition: all .3s;
+					}
+				}
+			}
+
+			.help-content {
+				background-color: #2b1f37;
+				color: #b2acba;
+				display: inline-block;
+				font-size: 12px;
+				line-height: 30px;
+				height: 100%;
+				padding: 40px 70px;
+				text-align: left;
+				vertical-align: top;
+				width: $downloadContentWidth;
+			}
+		}
+	}
+}
+
+.header {
+	position: fixed;
+
+	.row1 {
+		.row1-wrapper {
+			li {
+				display: none !important;
+			}
+
+			.li-logo {
+				display: inline-block !important;
+
+				.menu {
+					display: none !important;
+				}
+
+				.logo-icon-small {
+					cursor: auto !important;
+				}
+			}
+		}
+	}
+
+	.row2 {
+		display: none;
+	}	
+}
+
+@media screen and (max-width: 1300px) {
+	.help-center {
+		@include page-property;
+		display: block;
+
+		.wrapper {
+			$baseL                   :       1300;
+			$baseWidth               :       1000px;
+			$gap                     :       $baseWidth * 10 / $baseL;
+			$treeWidth               :       $baseWidth * 200 / $baseL;
+			$downloadContentWidth    :       $baseWidth - $treeWidth;
+
+			$contentHeight           :       620px;
+			$treeHeaderHeight        :       110px;
+			$treeItemHeight          :       50px;
+
+			width: $baseWidth;
+
+			.content {
+				margin-top: $gap - 5px;
+
+				.tree {
+					width: $treeWidth;
+
+					.tree-title {
+						height: $treeHeaderHeight;
+					    padding-left: 12px;
+					}
+
+					ul {
+						li {
+							height: $treeItemHeight;
+							line-height: $treeItemHeight;
+
+							.download-icon {
+								width: 133px;
+							}
+						}
+
+						.stick {
+							height: $treeItemHeight;
+						}
+					}
+				}
+
+				.help-content {
+					width: $downloadContentWidth;
+				}
+			}
+		}
+	}
+}

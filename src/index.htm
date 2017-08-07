@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		var proxy = '';
+		if (window.location.search != undefined) {
+			proxy = window.location.search;
+		}
+
+		if (window.location.host.indexOf('vebets') > -1 || window.location.host.indexOf('localhost') > -1 ) {
+			window.location.href = 'https://' + window.location.host + '/index.html' + proxy;
+		} else {
+			window.location.href = 'http://' + window.location.host + '/index.html' + proxy;
+		}
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

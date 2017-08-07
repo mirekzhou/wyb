@@ -1,0 +1,189 @@
+@import "../mixins.scss";
+
+.daddypay-bank {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    width: 220px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.dp-CMB {
+	background-position: 0 0;
+}
+
+.dp-CMBC {
+	background-position: 0 -50px;
+}
+
+.dp-ICBC {
+	background-position: 0 -100px;
+}
+
+.topup-confirm-dialog {
+	@include dialog-frame;
+
+	.dialog-wrapper {
+		@include dialog-wrapper(660px);
+		z-index: 170;
+		top: 50%;
+
+		.dialog {
+			@include dialog(660px, 488px);
+			padding: 30px 80px;
+
+			.title {
+				height: 40px;
+				line-height: 40px;
+				position: relative;
+				font-size: 16px;
+				text-align: center;
+
+	            .close {
+				    font-size: 30px;
+				    top: -30px;
+				    right: -65px;
+				    position: absolute;
+				    z-index: 20;
+				    cursor: pointer;
+
+	                &:hover {
+	                    color: $font-color2;
+	                }
+	            }
+			}
+
+			.content {
+				.row3 {
+					font-size: 12px;
+				    height: 40px;
+				    line-height: 40px;
+				    margin-bottom: 7px;
+					text-align: left;
+				}
+
+				.row4 {
+					.bank-card {
+						background: -webkit-linear-gradient(top, #282738, #1e1d2b);
+						background: -moz-linear-gradient(top, #282738, #1e1d2b);
+						background: linear-gradient(top, #282738, #1e1d2b);
+						border: none;
+						border-radius: 10px;
+						padding: 20px;
+						height: 255px;
+						width: 415px;
+						float: left;
+
+						.bank-logo {
+							height: 50px;
+							width: 100%;
+							text-align: center;
+						}
+
+						.info-ul {
+							li {
+								height: 35px;
+								line-height: 35px;
+								text-align: left;
+
+								.name {
+									float: left;
+									width: 80px;
+								}
+
+								.value {
+									display: inline-block;
+									float: left;
+								}
+
+								.time-valid-info {
+									float: right;
+									width: auto;
+								}
+							}
+
+							.post-message {
+								.name {
+									color: #e60011;
+								}
+
+								.value {
+									color: #e60011;
+								}
+							}
+						}
+					}
+
+					.copy-ul {
+						float: right;
+						margin-top: 70px;
+						width: 80px;
+
+						li {
+							cursor: pointer;
+							height: 35px;
+							line-height: 35px;
+							text-align: right;
+
+							&:hover {
+								color: #FFF;
+							}
+
+							&:active {
+							    transition: all .3s;
+							    transform: scale(.9);
+							}
+						}
+					}
+				}
+
+				.row5 {
+					font-size: 12px;
+					margin-top: 30px;
+				    text-align: left;
+				    line-height: 20px;
+				    width: 415px;
+
+				    .go-pay {
+				    	.button {
+				    		@include button1;
+				    		float: left;
+				    		background-color: $green;
+				    		color: #FFF;
+				    	}
+
+				    	.text {
+				    		float: right;
+						    height: 38px;
+						    line-height: 38px;
+						    font-size: 14px;
+				    	}
+				    }
+
+				    .count-down {
+				    	display: none;
+
+				    	.count-down-text {
+				    		@include button1;
+				    		float: left;
+						    height: 38px;
+						    line-height: 38px;
+						    width: 210px;
+						    text-align: center;
+				    	}
+
+				    	.check-topup-record {
+				    		cursor: pointer;
+				    		float: right;
+						    height: 38px;
+						    line-height: 38px;
+						    font-size: 14px;
+						    text-decoration: underline;
+				    	}
+				    }
+				}
+			}
+		}
+	}
+}

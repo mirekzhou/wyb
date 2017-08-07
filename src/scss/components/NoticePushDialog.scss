@@ -1,0 +1,66 @@
+@import "../mixins.scss";
+
+.notice-push-dialog {
+	.dialog-wrapper {
+	    display: block;
+	    position: fixed;
+	    width: 340px;
+	    height: auto;
+	    z-index: 140;
+	    right: 10px;
+	    bottom: -300px;
+	    transition: bottom 1.5s;
+
+		.dialog {
+		    background-color: $pc-bk-color2;
+		    border-radius: 5px;
+		    color: $font-color1;
+		    font-size: 12px;
+		    margin: 0 auto;
+		    position: relative;
+		    width: 340px;
+
+		    .section {
+				.subtitle {
+				    height: 35px;
+				    line-height: 35px;
+				    border-bottom: 1px solid #2b1f35;
+				    position: relative;
+				    text-align: center;
+
+					.title-name {
+						color: $font-color3;
+						font-size: 12px;
+					}
+
+					.close {
+						position: absolute;
+						right: 15px;
+						top: 8px;
+					    cursor: pointer;
+					    font-size: 25px;
+					    height: 15px;
+					    line-height: 15px;
+
+					    &:hover {
+					    	color: $font-color2;
+					    }
+					}
+				}
+
+				.content {
+				    height: auto;
+				    line-height: 20px;
+					font-size: 12px;
+					padding: 15px 10px;
+				    text-align: left;
+				    text-indent: 20px;
+				    display: flex;
+				    flex-direction: row;
+				    justify-content: space-around;
+				    align-items: center;
+				}
+		    }
+		}
+	}
+}

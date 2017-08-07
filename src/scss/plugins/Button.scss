@@ -1,0 +1,36 @@
+@import "../mixins.scss";
+
+.button {
+	@include button1;
+
+	.pc-serach-icon {
+	    background-image: url(../img/pc.png);
+	    background-position: -495px -9px;
+	    height: 20px;
+        cursor: pointer;
+        display: inline-block;
+        margin-right: 8px;
+        vertical-align: top;
+        width: 15px;
+
+        & + span {
+        	color: $green;
+		    vertical-align: top;
+		    position: relative;
+		    bottom: 1px;
+        }
+	}
+}
+
+.btn-plugin-active {
+	background-color: $green !important;
+	color: #FFF !important;
+}
+
+.btn-disabled {
+	cursor: auto !important;
+    
+    &:hover{
+        color: $pc-btn-font-color !important;
+    }
+}

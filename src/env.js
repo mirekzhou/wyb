@@ -1,0 +1,1 @@
+window.VEB_ENV = 'production';

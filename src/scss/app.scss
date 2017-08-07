@@ -1,0 +1,95 @@
+@import "mixins.scss";
+
+body {
+	background-color: $purple1;
+	overflow-x: hidden;	
+	overflow-y: scroll;
+}
+
+.app {
+	background-image: -webkit-radial-gradient(circle at top, #562d60 35%, #070C12);
+	background-image: radial-gradient(circle at top, #562d60 35%, #070C12);
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+
+	.main {
+		margin-top: $headerHeight;
+		font-size: 14px;
+		text-align: center;
+		width: 100%;
+		overflow: hidden;
+    	display: inline-block;
+    	transition: all .3s;
+
+		.logo-wrapper {
+			display: inline-block;
+			width: 100%;
+			min-width: 996px;
+
+			li {
+				img {
+					width: 100%;
+				}
+			}
+
+			.unslider-nav ol li {
+				width: 12px;
+    			height: 12px;
+    			border-radius: 50%;
+			}
+		}
+
+		.main-wrapper {
+			width: 100%;
+			position: relative;
+			left: 0;
+			text-align: center;
+			transition: left .5s;
+			margin-top: 25px;
+
+			.page {
+				display: inline-block;
+				width: $contentWidth;
+				text-align: center;
+				vertical-align: top;
+			}
+		}
+
+		.home {
+			background-color: #CCCCCC;
+		}
+	}
+}
+
+.entertainment-bg {
+	background-color: $purple4;
+	background-image: none;
+}
+
+#cnzz_stat_icon_1261702065 a {
+	display: none;	
+}
+
+@media screen and (min-width: 0px) and (max-width: 1300px) {
+	.app {
+		.main {
+			.main-wrapper {
+				.page {
+					width: 1000px;
+
+					.wrapper {
+						width: 1000px;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 0px) and (max-width: 1000px) {
+	body {
+		overflow-x: auto;	
+	}
+}
+

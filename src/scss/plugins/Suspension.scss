@@ -1,0 +1,172 @@
+@import "../mixins.scss";
+
+.suspension {
+	width: 40px;
+    width: 40px;
+    position: fixed;
+    top: 40%;
+    right: 10px;
+    
+    li {
+    	border: 1px solid #636572;
+    	border-radius: 50%;
+        font-size: 14px;
+		height: 40px;
+		line-height: 40px;
+		margin-top: 5px;
+		text-align: center;
+		position: relative;
+		width: 40px;
+
+    	$cs-icon-left1: -10px;
+    	$cs-icon-left2: -53px;
+
+    	.slipper {
+    		border: 1px solid $green;
+    		border-radius: 20px;
+    		color: $green;
+    		cursor: pointer;
+    		display: none;
+    		padding-left: 10px;
+    		height: 40px;
+    		line-height: 40px;
+    		position: absolute;
+    		top: 0;
+    		text-align: left;
+    		right: 0;
+    		width: 150px;
+
+            &.server-code {
+                border: none;
+                top: -41px;
+                right: 12px;
+            }
+    	}
+
+    	.icon {
+			background-image: url("../img/cs.png");
+			cursor: pointer;
+			display: inline-block;
+			height: 25px;
+			margin-top: 9px;
+			width: 25px;
+    	}
+
+    	.qrcode-icon {
+    		background-position: $cs-icon-left1 -15px;
+
+            & ~ .slipper {
+                width: 225px;
+            }
+    	}
+
+        .loginer-icon {
+            background-position: ($cs-icon-left1 + 2px) -286px;
+
+            & ~ .slipper {
+                width: 170px;
+            }
+        }
+
+    	.phone-icon {
+    		background-position: $cs-icon-left1 -60px;
+
+    		& ~ .slipper {
+    			width: 225px;
+    		}
+    	}
+        
+        .server-icon {
+            background-position: $cs-icon-left1 -331px;
+        }
+
+    	.qq-icon {
+    		background-position: $cs-icon-left1 -105px;
+
+    		& ~ .slipper {
+    			width: 165px;
+    		}
+    	}
+
+    	.wechat-icon {
+    		background-position: $cs-icon-left1 -152px;
+
+    		& ~ .slipper {
+    			width: 150px;
+    		}
+    	}
+
+    	.compass-icon {
+    		background-position: $cs-icon-left1 -195px;
+    	}
+
+    	.top-icon {
+    		background-position: $cs-icon-left1 -240px;
+    	}
+
+        .qrcode {
+            position: absolute;
+            right: 45px;
+            top: -50px;
+            display: none;
+        }
+
+      
+
+    	&:hover {
+    		border: 0;
+
+    		.slipper {
+    			display: inline-block;
+    		}
+
+	    	.qrcode-icon {
+	    		background-position: $cs-icon-left2 -15px;
+	    	}
+
+            .server-icon {
+                background-position: $cs-icon-left2 -331px;
+            }
+
+	    	.phone-icon {
+	    		background-position: $cs-icon-left2 -60px;
+	    	}
+
+	    	.qq-icon {
+	    		background-position: $cs-icon-left2 -105px;
+	    	}
+
+	    	.wechat-icon {
+	    		background-position: $cs-icon-left2 -149px;
+	    	}
+
+	    	.compass-icon {
+	    		background-position: $cs-icon-left2 -195px;
+	    	}
+
+	    	.top-icon {
+	    		background-position: $cs-icon-left2 -240px;
+	    	}
+              .loginer-icon {
+                background-position: $cs-icon-left2 -286px;
+            }
+    	}
+
+        &:first-child:hover {
+
+            .qrcode {
+                display: block;
+            }
+        }
+
+        &.new-server:hover {
+             border:1px solid #257c50;
+
+           
+           }
+
+        &:last-child:hover {
+            border: 1px solid $green;
+        }
+    }
+}

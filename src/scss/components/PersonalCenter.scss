@@ -1,0 +1,696 @@
+@import "../mixins.scss";
+
+.personal-center {
+    @include dialog-frame;
+
+    .dialog-wrapper {
+        background-color: rgba(82, 86, 109, 0.3);
+        perspective: 1300px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 156;
+        min-width: 1090px;
+
+        $baseL                  :    1300;
+        $baseWidth              :    1300px;
+        $gap                    :    floor($baseWidth * 10 / $baseL);
+        $gap2                   :    $baseWidth * 20 / $baseL;
+        $leftContainerWidth     :    $baseWidth * 200 / $baseL;
+        $rightContainerWidth    :    $baseWidth - $leftContainerWidth;
+        $centerWalletWidth      :    floor($baseWidth * 270 / $baseL);
+        $walletZoneWidth        :    floor($baseWidth * 780 / $baseL);
+        $subWalletWidth         :    $baseWidth * 170 / $baseL;
+        $swiperNavWidth         :    28px;
+
+        $centerWalletHeight     :    170px;
+        $userProfileHeight      :    140px;
+        $userProfileHeight1     :    26px;
+        $userProfileHeight2     :    26px;
+        $userProfileHeight3     :    26px;
+        $userProfileHeight4     :    30px;
+        $treeLiHeight           :    50px;
+        $CWHeight1              :    50px;
+        $CWHeight2              :    70px;
+        $CWHeight3              :    50px;
+
+        $tabContainerTop        :    $centerWalletHeight + $gap + $gap2;
+        $tabContainerLeft       :    $gap2;
+        $tabContainerBottom     :    $gap2;
+        $tabContainerRight      :    $gap2;
+
+        $pc-icon-top1           :   -9px;
+        $pc-icon-top2           :   -47px;
+        $pc-icon-top3           :   -17px;
+        $pc-icon-top4           :   -53px;
+
+        .pc-icon {
+            background-image: url("../img/pc.png");
+            display: inline-block;
+        }
+
+        .crown-icon {
+            background-position: -10px $pc-icon-top1;
+            height: 15px;
+            width: 16px;
+        }
+
+        .bankcard-icon {
+            background-position: -45px $pc-icon-top1;
+            height: 27px;
+            width: 27px;
+        }
+
+        .mailbox-icon {
+            background-position: -92px $pc-icon-top1;
+            height: 27px;
+            width: 27px;
+        }
+
+        .phone-icon {
+            background-position: -139px $pc-icon-top1;
+            height: 27px;
+            width: 27px;
+        }
+
+        .dollar-icon {
+            background-position: -190px $pc-icon-top3;
+            height: 15px;
+            width: 15px;
+        }
+
+        .file-icon {
+            background-position: -218px $pc-icon-top3;
+            height: 15px;
+            width: 15px;
+        }
+
+        .setting-icon {
+            background-position: -246px $pc-icon-top3;
+            height: 15px;
+            width: 15px;
+        }
+
+        .station-mail-icon {
+            background-position: -273px $pc-icon-top3;
+            height: 15px;
+            width: 15px;
+        }
+
+        .left-icon {
+            background-image: url("../img/icon.png");
+            background-position: -150px $pc-icon-top1;
+            height: 28px;
+            width: 17px;
+        }
+
+        .right-icon {
+            background-image: url("../img/icon.png");
+            background-position: -191px $pc-icon-top1;
+            height: 28px;
+            width: 17px;
+        }
+
+        .dialog {
+            min-width: 950px;
+            max-width: $baseWidth + 30px;
+            margin: 0 auto;
+            position: relative;
+            height: 100%;
+            box-sizing: border-box;
+            padding: 15px;
+            -webkit-transform: rotateX(-90deg);
+            transform: rotateX(-90deg);
+
+            .left-container {
+                background-color: $pc-bk-color2;
+                box-sizing: border-box;
+                width: $leftContainerWidth;
+                height: 100%;
+                float: left;
+                font-size: 14px;
+                transition: all .5s;
+
+                .user-profiles {
+                    box-sizing: border-box;
+                    height: $userProfileHeight;
+                    padding: $gap2;
+                    padding-bottom: 0;
+                    width: 100%;
+
+                    .user {
+                        .username {
+                            color: #FFF;
+                            font-size: 14px;
+                            height: $userProfileHeight1;
+                            line-height: $userProfileHeight1;
+                            text-align: left;
+                        }
+
+                        .user-level {
+                            color: $yellow2;
+                            font-size: 12px;
+                            height: $userProfileHeight2;
+                            line-height: $userProfileHeight2;
+                            text-align: left;
+
+                            .crown-icon {
+                                vertical-align: text-top;
+                            }
+
+                            .vip {
+                                vertical-align: top;
+                                margin-left: 5px;
+                            }
+                        }
+                    }
+
+                    .psw-info {
+                        font-size: 12px;
+                        height: $userProfileHeight3;
+                        line-height: $userProfileHeight3;
+                        text-align: left;
+
+                        span {
+                            color: $font-color1;
+                            display: inline-block;
+                            float: left;
+                        }
+
+                        a {
+                            color: $font-color3;
+                            cursor: pointer;
+                            display: inline-block;
+                            float: right;
+                            text-decoration: underline;
+                        }
+
+                        .psw-level-value {
+                            margin-left: $gap;
+                        }
+                    }
+
+                    .menu-ico {
+                        margin-top: 6px;
+                        text-align: left;
+
+                        li {
+                            display: inline-block;
+                            width: 33.33%;
+                            text-align: left;
+
+                            &:last-child {
+                                margin-right: 0;                                
+                            }
+                        }
+
+                        .binded {
+                            .bankcard-icon {
+                                background-position: -45px $pc-icon-top2;
+                            }
+
+                            .mailbox-icon {
+                                background-position: -92px $pc-icon-top2;
+                            }
+
+                            .phone-icon {
+                                background-position: -139px $pc-icon-top2;
+                            }
+                        }
+                    }
+                }
+                
+                .tree {
+                    width: 100%;
+                    height: auto;
+                    background-color: $pc-bk-color2;
+                    position: relative;
+                    border-top: 2px solid $pc-bk-color1;
+
+                    ul {
+                        width: 100%;
+
+                        li {
+                            border-bottom: 1px solid $pc-bk-color1;
+                            color: #b4b4b4;
+                            cursor: pointer;
+                            display: inline-block;
+                            font-size: 14px;
+                            height: $treeLiHeight;
+                            line-height: $treeLiHeight;
+                            padding-left: $gap2;
+                            text-align: left;
+                            width: 100%;
+
+                            .pc-icon {
+                                vertical-align: middle;
+                                margin-right: $gap;
+                            }
+
+                            .letter-count{
+                                margin: 0;
+                            }
+
+                            &:hover {
+                                color: #FFF;
+                                background-color: $pc-bk-color1;
+
+                                .dollar-icon {
+                                    background-position: -190px $pc-icon-top4;
+                                }
+
+                                .file-icon {
+                                    background-position: -218px $pc-icon-top4;
+                                }
+
+                                .setting-icon {
+                                    background-position: -246px $pc-icon-top4;
+                                }
+
+                                .station-mail-icon {
+                                    background-position: -273px $pc-icon-top4;
+                                }
+                            }
+                        }
+
+                        .selected {
+                            color: #FFF;
+                            background-color: $pc-bk-color1;
+
+                            .dollar-icon {
+                                background-position: -190px $pc-icon-top4;
+                            }
+
+                            .file-icon {
+                                background-position: -218px $pc-icon-top4;
+                            }
+
+                            .setting-icon {
+                                background-position: -246px $pc-icon-top4;
+                            }
+
+                            .station-mail-icon {
+                                background-position: -273px $pc-icon-top4;
+                            }
+                        }
+                    }
+
+                    .stick {
+                        height: $treeLiHeight;
+                        width: 3px;
+                        position: absolute;
+                        background-color: $red;
+                        top: 0px;
+                        left: 0px;
+                        transition: top 0.5s;
+                        -moz-transition: top 0.5s;
+                        -webkit-transition: top 0.5s;
+                        -o-transition: top 0.5s;
+                    }
+                }
+            }
+
+            .right-container {
+                background-color: $pc-bk-color1;
+                float: right;
+                box-sizing: border-box;
+                overflow: hidden;
+                width: $rightContainerWidth;
+                height: 100%;
+                padding: $gap2;
+                position: relative;
+                transition: all .5s;
+
+                .center-wallet {
+                    background-color: $pc-bk-color2;
+                    width: $centerWalletWidth;
+                    height: $centerWalletHeight;
+                    position: relative;
+                    padding: 0 $gap;
+                    color: #535353;
+                    float: left;
+                    transition: all .5s;
+
+                    .title {
+                        border-bottom: 1px solid $pc-bk-color1;
+                        color: $font-color1;
+                        font-size: 15px;
+                        height: $CWHeight1;
+                        line-height: $CWHeight1;
+                        text-align: left;
+                    }
+
+                    .center-balance {  
+                        height: $CWHeight2;
+                        line-height: $CWHeight2;
+                        text-align: left;
+
+                        .money {
+                            color: $font-color2;
+                            float: left;
+                        }
+
+                        .money-unit {
+                            color: $font-color1;
+                            float: left;
+                            font-size: 15px;
+                        }
+
+                        .money-type {
+                            color: $font-color1;
+                            font-size: 22px;
+                        }
+
+                        .balance {
+                            color: $font-color1;
+                            font-size: 22px;
+                            margin-right: 5px;
+                        }
+
+                        .refresh-icon {
+                            background-image: url(../img/common.png);
+                            background-position: -132px -78px;
+                            cursor: pointer;
+                            display: inline-block;
+                            float: right;
+                            height: 15px;
+                            margin-top: 27px;
+                            width: 19px;
+
+                            &:hover {
+                                background-position: -132px -110px;
+                            }
+                        }
+                    }
+
+                    .actions {
+                        height: $CWHeight3;
+                        text-align: center;
+
+                        .btn {
+                            background-color: $pc-btn-ck-color;
+                            border-radius: 20px;
+                            color: $pc-btn-font-color;
+                            display: inline-block;
+                            font-size: 14px;
+                            height: 30px;
+                            line-height: 30px;
+                            width: 100px;
+
+                            &:hover{
+                                color: $font-color2;
+                            }
+                        }
+
+                        .btn-deposit {
+                            margin-right: 30px;
+                        }
+                    }
+                }
+
+                .wallet-zone {
+                    background-color: $pc-bk-color2;
+                    box-sizing: border-box;
+                    float: left;
+                    height: $centerWalletHeight;
+                    margin-left: $gap;
+                    overflow: hidden;
+                    position: relative;
+                    text-align: center;
+                    transition: all .5s;
+                    width: $walletZoneWidth;
+
+                    .wallet-left-nav {
+                        cursor: pointer;
+                        display: inline-block;
+                        visibility : hidden;
+                        height: 100%;
+                        position: absolute;
+                        vertical-align: top;
+                        width: $swiperNavWidth;
+                        left: 0;
+
+                        .left-icon {
+                            position: absolute;
+                            left: 6px;
+                            top: 50%;
+                            transform: translate(0,-50%);
+                        }
+
+                        &:hover {
+                            background-color: #24232e;
+                            .left-icon {
+                                background-position: -70px $pc-icon-top1;
+                            }
+                        }
+                    }
+
+                    .wallet-right-nav {
+                        cursor: pointer;
+                        display: inline-block;
+                        height: 100%;
+                        position: absolute;
+                        vertical-align: top;
+                        width: $swiperNavWidth;
+                        right: 0;
+                        .right-icon {
+                            position: absolute;
+                            right: 6px;
+                            top: 50%;
+                            transform: translate(0,-50%);
+                        }
+
+                        &:hover {
+                            background-color: #24232e;
+                            .right-icon {
+                                background-position: -111px $pc-icon-top1;
+                            }
+                        }
+                    }
+
+                    .swiper-container {
+                        display: inline-block;
+                        height: 100%;
+                        overflow: hidden;
+                        width: $subWalletWidth * 4;
+
+                        .swiper {
+                            height: 100%;
+                            @include transition(0.5s);
+                            width: 10000px;
+
+                            .wallet-group {
+                                height: 100%;
+                                width: $subWalletWidth;
+                                margin: 0 1px;
+                                float: left;
+
+                                .sub-wallet {
+                                    margin-top: 17px;
+
+                                    .rotate {
+                                        transition: transform 2s;
+                                        transform: rotateZ(720deg);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .tab-container {
+                    background-color: $pc-bk-color2;
+                    bottom: $tabContainerBottom;
+                    position: absolute;
+                    text-align: left;
+                    top: $tabContainerTop;
+                    left: $tabContainerLeft;
+                    right: $tabContainerRight;
+                    overflow: hidden;
+
+                    .tab-container-item {
+                        height: 100%;
+                        position: relative;
+                        width: 100%;
+
+                        ul.tab {
+                            background-color: $pc-bk-color2;
+                            border-bottom: 2px solid $pc-bk-color1;
+
+                            margin-bottom: $gap / 2;
+
+                            & + div {
+                                position: absolute;
+                                top: $gap / 2 + 40px;
+                                bottom: 0;
+                                left: 0;
+                                right: 0;
+                                overflow: auto;
+                            }
+                        }
+
+                        ::-webkit-scrollbar
+                        {
+                            width: 5px;
+                            height: 5px;
+                            background-color: $purple1;
+                        }
+                        
+                        /*定义滚动条轨道 内阴影+圆角*/
+                        ::-webkit-scrollbar-track
+                        {
+                            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+                            border-radius: 10px;
+                            background-color: $purple1;
+                        }
+                        
+                        /*定义滑块 内阴影+圆角*/
+                        ::-webkit-scrollbar-thumb
+                        {
+                            border-radius: 10px;
+                            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+                            background-color: $font-color1;
+                        }
+                    }
+                }
+            }
+
+            .close {
+                color: $font-color1;
+                font-size: 28px;
+                top: 4px;
+                right: 16px;
+                position: absolute;
+                z-index: 20;
+                cursor: pointer;
+
+                &:hover {
+                    color: $font-color2;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1350px) {
+    .personal-center {
+        .dialog-wrapper {
+            $baseL                  :    1300;
+            $baseWidth              :    1060px;
+            $gap                    :    floor($baseWidth * 10 / $baseL);
+            $gap2                   :    $baseWidth * 20 / $baseL;
+            $leftContainerWidth     :    $baseWidth * 200 / $baseL;
+            $rightContainerWidth    :    $baseWidth - $leftContainerWidth;
+            $centerWalletWidth      :    floor($baseWidth * 270 / $baseL);
+            $walletZoneWidth        :    floor($baseWidth * 780 / $baseL);
+            $subWalletWidth         :    $baseWidth * 170 / $baseL;
+            $swiperNavWidth         :    28px;
+            $centerWalletHeight     :    170px;
+            $tabContainerTop        :    $centerWalletHeight + $gap + $gap2;
+            $tabContainerLeft       :    $gap2;
+            $tabContainerBottom     :    $gap2;
+            $tabContainerRight      :    $gap2;
+
+            .dialog {
+                max-width: $baseWidth + 30px;
+
+                .left-container {
+                    width: $leftContainerWidth;
+
+                    .user-profiles {
+                        padding: $gap2;
+
+                        .psw-info {
+                            .psw-level-value {
+                                margin-left: $gap;
+                            }
+                        }
+                    }
+                }
+
+                .right-container {
+                    width: $rightContainerWidth;
+                    padding: $gap2;
+
+                    .center-wallet {
+                        width: $centerWalletWidth;
+                        padding: 0 $gap;
+
+                        .title {
+                            font-size: 14px;
+                        }
+
+                        .center-balance {  
+                            .money-unit {
+                                font-size: 12px;
+                            }
+
+                            .money-type {
+                                font-size: 17px;
+                            }
+
+                            .balance {
+                                font-size: 17px;
+                                margin-right: 5px;
+                            }
+                        }
+
+                        .actions {
+                            .btn {
+                                font-size: 12px;
+                                height: 24px;
+                                line-height: 24px;
+                                width: 80px;
+                            }
+
+                            .btn-deposit {
+                                margin-right: 10px;
+                            }
+                        }
+                    }
+
+                    .wallet-zone {
+                        margin-left: $gap;
+                        width: $walletZoneWidth;
+
+                        .wallet-left-nav {
+                            width: $swiperNavWidth;
+                        }
+
+                        .wallet-right-nav {
+                            width: $swiperNavWidth;
+                        }
+
+                        .swiper-container {
+                            width: $subWalletWidth * 4;
+
+                            .swiper {
+                                .wallet-group {
+                                    width: $subWalletWidth;
+                                }
+                            }
+                        }
+                    }
+
+                    .tab-container {
+                        bottom: $tabContainerBottom;
+                        top: $tabContainerTop;
+                        left: $tabContainerLeft;
+
+                        .tab-container-item {
+                            ul {
+                                margin-bottom: $gap / 2;
+
+                                & + div {
+                                    top: $gap / 2 + 40px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

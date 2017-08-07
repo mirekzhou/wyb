@@ -1,0 +1,102 @@
+@import "../mixins.scss";
+
+.security-center {
+	@include tab-page;
+	display: block;
+	font-size: 14px;
+
+    $baseL           :    1300;
+    $baseWidth       :    1300px;
+	$gap             :    20px;
+	$itemRight       :	  $baseWidth * 300 / $baseL;
+
+	.wrapper {
+		width: 100%;
+		position: relative;
+		box-sizing: border-box;
+		
+		& > div {
+			border-bottom: 1px solid $purple5;
+			color: $font-color1;
+			font-size: 14px;
+			height: 100px;
+			line-height: 100px;
+			position: relative;
+			width: 100%;
+
+			.pc-icon {
+				float: left;
+			    margin-top: 39px;
+			    margin-right: $gap;
+			    background-image: url(../img/pc.png);
+			    display: inline-block;
+				height: 27px;
+				width: 20px;
+			}
+
+			.item {
+				float: left;
+				margin-right: $itemRight;
+				text-align: left;
+				width: 100px;
+			}
+
+			.text {
+				float: left;
+			}
+
+			.security-level {
+				float: left;
+			}
+
+			a {
+				display: inline-block;
+				float: right;
+				margin-right: $gap;
+				cursor: pointer;
+				text-decoration: underline;
+
+				&:hover {
+					color: $font-color2;
+				}
+			}
+
+			.security-lock-icon {
+				background-position: -535px -10px;
+			}
+
+			.security-key-icon {
+				background-position: -570px -10px;
+			}
+
+			.security-card-icon {
+				background-position: -608px -10px;
+			}
+
+			.security-phone-icon {
+				background-position: -646px -10px;
+			}
+
+			.security-mail-icon {
+				background-position: -686px -10px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1350px) {
+	.security-center {
+	    $baseL           :    1300;
+	    $baseWidth       :    1000px;
+		$itemRight       :	  $baseWidth * 300 / $baseL;
+		font-size: 13px;
+
+		.wrapper {
+			& > div {
+				.item {
+					margin-right: $itemRight;
+				}
+			}
+		}
+	}
+}

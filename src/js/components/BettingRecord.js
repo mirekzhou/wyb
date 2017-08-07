@@ -1,0 +1,299 @@
+(function () {
+	function BettingRecord () {
+		this.initDom();
+	}
+	
+	BettingRecord.prototype.initDom = function () {
+		var temp;
+
+		this.select = new Select({
+			id: 'betting-record-select',
+			width: 100,
+			height: 32,
+			data: []
+		});
+
+		this.button = new Button({
+			id: 'betting-record-button',
+			name: '查询',
+			search: true,
+			width: 90,
+			height: 28
+		});
+
+		this.pager = new Pager({
+			id: 'bet-record-pager',
+			callback: this.bindData.bind(this)
+		});
+
+		temp = 		'<div class="betting-record jyjl-money-action">' +
+						'<div class="bar-zone">' +
+							'<div class="up">' +
+								'<div class="select-zone">' +
+									'<span class="title">游戏类型</span>' +
+									this.select.getDom() +
+								'</div>' +
+
+								'<div class="time-section">' +
+									'<span class="title">日期</span>' +
+									'<input class="starttime" type="text"/>' +
+									'<span class="divider">至</span>' +
+									'<input class="endtime" type="text"/>' +
+								'</div>' +
+
+								this.button.getDom() +
+
+								'<ul class="fast-date">' +
+									'<li data-value="0"><span>今日</span></li>' +
+									'<li data-value="-1"><span>昨日</span></li>' +
+									'<li data-value="-3"><span>3日</span></li>' +
+									'<li data-value="-7"><span>7日</span></li>' +
+								'</ul>' +
+
+								'<div class="clear"></div>' +
+							'</div>' +
+
+							'<div class="down">' +
+								'<span class="text">总投注额：</span>' +
+								'<span class="value total-bet">0.00</span>' +
+								'<span class="text">有效投注：</span>' +
+								'<span class="value effect-bet">0.00</span>' +
+								'<span class="text">单量：</span>' +
+								'<span class="value records-amount">0</span>' +
+								'<span class="text">派奖：</span>' +
+								'<span class="value return-money">0.00</span>' +
+							'</div>' +				
+						'</div>' +
+
+						'<div class="table-zone">' +
+							'<table cellspacing="0">' +
+								'<thead><tr>' + 
+									'<th title="美东时间比北京时间晚12小时" style="cursor:pointer;">日期（美东时间）</th>' +
+									'<th>游戏平台</th>' +
+									'<th>总投注额</th>' +
+									'<th>有效投注额</th>' +
+									'<th>派彩</th>' +
+									'<th>单量</th>' +
+								'</tr></thead>' +
+								'<tbody>' +
+								'</tobdy>' +
+ 							'</table>' +
+ 							'<div class="page-content">' +
+ 								this.pager.getDom() +
+ 							'</div>' +
+						'</div>' +
+
+					'</div>';
+
+		this.el  = temp;
+	};
+
+	BettingRecord.prototype.getDom = function () {
+		return this.el;
+	};
+
+	BettingRecord.prototype.show = function(){
+		var that = this;
+
+		this.zone.show();
+
+		if (!this.firstTime) {
+			if (app.allApiData) {
+				this.setPlatforms(app.allApiData);
+				this.firstTime = true;
+			} else {
+				app.getAllPlatforms(function (data) {
+					that.setPlatforms(app.allApiData);
+					that.firstTime = true;
+				});
+			}
+		}
+
+		this.queryData(0, true);
+		this.queryTotal();
+	}
+
+	BettingRecord.prototype.hide = function(){
+		this.zone.hide();
+	}
+
+	BettingRecord.prototype.setPlatforms = function(data) {
+		var i;
+		var temp = '<option data-value="-1">游戏类型</option>';
+
+		for (i = 0; i < data.length; i++) {
+			temp += '<option data-value="' + data[i].GamePlatform + '">' +
+						data[i].GameName +
+					'</option>';
+		}
+
+		this.select.setOptions(temp);
+	};
+
+    BettingRecord.prototype.createLoader = function() {
+        var wrapper1 = this.zone.find('.table-zone tbody')[0];
+
+        this.loader1 = new Loader(wrapper1, {
+        	top: '84%',
+        	color: '#000'
+        });
+    };
+
+	BettingRecord.prototype.queryData = function(pageIndex, firstTime){
+		var opt;
+		var callback;
+		var gamePlatform = '';
+		var params       = '';
+		var that         = this;
+		var starttime    = Util.formatStringToMdTime(this.zone.find('.starttime').val());
+		var endtime      = Util.formatStringToMdTime(this.zone.find('.endtime').val());
+		var val          = this.select.getValue();
+
+		this.loader1.play();
+
+		if (val != -1) {
+			gamePlatform = val;
+		}
+
+		opt = {
+			url: app.urls.bettingRecords,
+			data: {
+				startTime: starttime,
+				endTime: endtime,
+				pageIndex: pageIndex,
+				pageSize: 10,
+				gamePlatform: gamePlatform
+			}
+		};
+
+		callback = function (json) {
+        	that.loader1.stop();
+        	that.setData(json);
+        	
+        	if (firstTime) {
+        		that.pager.setTotal(json.count);
+        	}
+		};
+
+		Service.get(opt, callback);
+	};
+
+	BettingRecord.prototype.queryTotal = function() {
+		var gamePlatform = '';
+		var params       = '';
+		var that         = this;
+		var starttime    = Util.formatStringToMdTime(this.zone.find('.starttime').val());
+		var endtime      = Util.formatStringToMdTime(this.zone.find('.endtime').val());
+		var val          = this.select.getValue();
+
+		if (val != -1) {
+			gamePlatform = val;
+		}
+		
+		var opt = {
+			url: app.urls.getBettingTotal,
+			data: {
+				gamePlatform: gamePlatform,
+				startTime: starttime,
+				endTime: endtime
+			}
+		};
+
+		var callback = function (json) {
+			if (json.StatusCode && json.StatusCode != 0) {
+				app.alert(json.Message);
+				return;
+			}
+
+			that.zone.find('.bar-zone .total-bet').text(json.Bet.toFixed(2));
+			that.zone.find('.bar-zone .effect-bet').text(json.RealBet.toFixed(2));
+			that.zone.find('.bar-zone .records-amount').text(json.Num);
+			that.zone.find('.bar-zone .return-money').text(json.PayOut.toFixed(2));
+		};
+
+		Service.get(opt, callback);
+	};
+
+	BettingRecord.prototype.setData = function(data){
+		var i           = 0;
+		var dom         = '';
+		var currentData = data.list;	
+
+		for(i = 0; i < currentData.length; i++){
+			if (i % 2 == 0) {
+				dom +=	'<tr class="odd">' +
+							'<td>' + currentData[i].CreateTime + '</td>' +
+							'<td>' + currentData[i].GamePlatform + '</td>' +
+							'<td>' + currentData[i].Bet + '</td>' +
+							'<td>' + currentData[i].RealBet + '</td>' +
+							'<td>' + currentData[i].PayOut + '</td>' +
+							'<td>' + currentData[i].Num + '</td>' +
+						'</tr>';
+			} else {
+				dom +=	'<tr class="even">' +
+							'<td>' + currentData[i].CreateTime + '</td>' +
+							'<td>' + currentData[i].GamePlatform + '</td>' +
+							'<td>' + currentData[i].Bet + '</td>' +
+							'<td>' + currentData[i].RealBet + '</td>' +
+							'<td>' + currentData[i].PayOut + '</td>' +
+							'<td>' + currentData[i].Num + '</td>' +
+						'</tr>';
+			}
+		}
+
+		this.zone.find('.table-zone tbody').html(dom);
+	};
+
+	BettingRecord.prototype.setDatetime = function () {
+		var li       = this.zone.find('.fast-date .selected');
+		var interval = parseInt(li.attr('data-value'));
+		var endDay   = new Date();
+		var beginDay = Util.getIntervalDate(endDay, interval);
+
+		beginDay = beginDay.formatDate() + ' 00:00';
+        endDay   = endDay.formatDate() + ' 23:59';
+        this.zone.find('.starttime').datetimepicker({value: beginDay});
+        this.zone.find('.endtime').datetimepicker({value: endDay});
+	};
+
+	BettingRecord.prototype.bindData = function(pageIndex){
+		var dom = this.queryData(pageIndex);
+		this.zone.find('.table-zone  table > tbody').html(dom);
+	};
+
+	BettingRecord.prototype.bindEvents = function () {
+		var fastDateUl;
+		var that     = this;
+		var endDay   = new Date();
+		var beginDay = Util.getIntervalDate(endDay, 0);
+		var minDate  = Util.getIntervalDate(endDay, -15);
+
+		this.zone    = $('.betting-record');
+		fastDateUl   = this.zone.find('.fast-date'); 
+
+		beginDay = beginDay.formatDate() + ' 00:00';
+        endDay   = endDay.formatDate() + ' 23:59';
+        this.zone.find('.starttime').datetimepicker({value: beginDay, timepicker: false, theme: 'dark', lang: 'zh', minDate: minDate});
+        this.zone.find('.endtime').datetimepicker({value: endDay, timepicker: false, theme: 'dark', lang: 'zh', minDate: minDate});
+
+        fastDateUl.delegate('li', 'click', function () {
+			fastDateUl.children('li').removeClass('selected');
+	        $(this).addClass('selected');
+        	that.setDatetime();
+        	that.queryData(0, true);
+        	that.queryTotal();
+        });
+
+        this.zone.find('#betting-record-button').click(function () {
+        	that.queryData(0, true);
+        	that.queryTotal();
+        });
+
+        this.button.bindEvents();
+		this.select.bindEvents();
+		this.pager.bindEvents();
+		this.createLoader();
+	};
+
+	window.BettingRecord = BettingRecord;
+}());

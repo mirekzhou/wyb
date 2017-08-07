@@ -1,0 +1,61 @@
+@import "../mixins.scss";
+
+.select {
+	border: 1px solid $border-color1;
+	display: inline-block;
+	height: 32px;
+	line-height: 32px;
+	position: relative;
+
+	select {
+		background: transparent;
+		border: 0;
+		color: $font-color1;
+		cursor: pointer;
+		height: 100%;
+		vertical-align: top;
+		width: 100%;
+		outline: none;
+		padding: 0 10px;
+		appearance:none;
+		-moz-appearance:none;
+		-webkit-appearance:none;
+
+		&::-ms-expand {
+			display: none;
+		}
+
+		option {
+		    background: $purple1;
+		    border: 1px solid $border-color1; 
+		    color: $font-color1;
+		}
+
+		&:focus {
+			border-color: $border-color1;
+		}
+
+		&::-webkit-selection {
+		    background: #000; 
+		    color:#FFF;
+		}
+
+		&::-moz-selection{
+			background: #000;
+			color: #FFF;
+		}
+
+		&::selection {
+			background: #000;
+			color: #FFF;
+		}
+	}
+
+	.selet-down-icon {
+		position: absolute;
+		pointer-events: none;
+		right: 5px;
+		top: -5px;
+		width: 20px;
+	}
+}

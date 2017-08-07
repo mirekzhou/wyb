@@ -1,0 +1,167 @@
+@import "../mixins.scss";
+
+.withdraw {
+	@include tab-page;
+
+    $baseL                  :    1300;
+    $baseWidth              :    1300px;
+    $bankWidth              :    325px;
+    $bankHeight             :    40px;
+
+	.title {
+		background: none;
+		color: $font-color1;
+		font-size: 14px;
+		height: 30px;
+		line-height: 30px;
+	    width: 95%;
+
+		.text {
+			color: $font-color1;
+		}
+
+		.value {
+			color: $font-color1;
+		}
+
+		.left {
+			float: left;
+			display: inline-block;
+		}
+
+		.right {
+			float: right;
+			display: inline-block;
+		}
+	}
+
+	.content {
+		font-size: 14px;
+		
+		.row1 {
+			.title {
+				background: none;
+			    height: 30px;
+			    line-height: 30px;
+			    color: $font-color1;
+			    padding-left: 0;
+			}
+
+			.go-bind-card {
+				color: #00AAEA;
+				cursor: pointer;
+			}
+
+			ul {
+				margin-top: 10px;
+
+				li {
+					background-color: #FFF;
+					cursor: pointer;
+					display: block;
+				    height: $bankHeight;
+				    line-height: $bankHeight;
+				    width: $bankWidth;
+					margin-top: 20px;
+					text-align: center;
+					overflow: hidden;
+					position: relative;
+
+					&:hover {
+						.card-overlay {
+							display: none;
+						}
+					}
+
+					label {
+					    cursor: pointer;
+					    height: 100%;
+					    display: inline-block;
+					    vertical-align: top;
+					}
+
+					.text {
+						display: inline-block;
+						vertical-align: top;
+					}
+
+					.value {
+						vertical-align: top;
+					}
+
+					input[type='radio'] {
+						position: absolute;
+						top: 12px;
+						left: 9px;
+					}
+
+					.bankLogo {
+					    margin-top: 5px;
+						margin-left: 0px;
+						margin-right: 20px;
+					}
+
+					.card-overlay {
+						background: rgba(0, 0, 0, .4);
+						position: absolute;
+						top: 0;
+						bottom: 0;
+						left: 0;
+						right: 0;
+					}
+				}
+
+				.selected {
+					.card-overlay {
+						display: none;
+					}
+				}
+			}
+		}
+
+		.row2, .row21 {
+			margin-top: 20px;
+
+			.text {
+				color: $font-color1;
+				display: inline-block;
+				height: 30px;
+				line-height: 30px;
+				bottom: 8px;
+				position: relative;
+				margin-right: 10px;
+			}
+
+			.unit {
+				margin-left: 10px;
+			}
+
+			.input-notice {
+				color: $font-color1;
+				font-size: 12px;
+				height: 20px;
+				line-height: 20px;
+				margin-left: 58px;
+			}
+
+			.money-pwd-notice {
+				display: none;
+			}
+		}
+
+		.row3 {
+			margin-top: 28px;
+
+			.button {
+				margin-left: 67px;
+				@include button1;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1350px) {
+	.withdraw {
+		font-size: 13px;
+	}
+}

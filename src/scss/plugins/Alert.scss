@@ -1,0 +1,41 @@
+@import "../mixins.scss";
+
+.alert {
+	@include dialog-frame;
+
+	.dialog-wrapper {
+		@include dialog-wrapper(300px);
+        z-index: 10000;
+        top: 50%;
+
+		.dialog {
+			@include dialog(300px, 160px);
+			font-size: 12px;
+
+			.content {
+				color: #9e96a9;
+				font-size: 12px;
+				height: 110px;
+				width: 100%;
+			    padding: 20px;
+			    padding-top: 40px;
+			    text-align: center;
+			    word-break: break-all;
+			}
+
+			.button-zone {
+				width: 100%;
+				text-align: center;
+
+				.button {
+					@include button1;
+
+					height: 28px;
+					line-height: 28px;
+					width: 90px;
+					color: #9e96a9;
+				}
+			}
+		}
+	}
+}

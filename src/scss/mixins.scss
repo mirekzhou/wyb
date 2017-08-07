@@ -1,0 +1,322 @@
+$contentWidth              :   1300px;
+$headerHeight              :   85px;
+$footerHeight              :   108px;
+
+$headerRow1Height          :   40px;
+$headerRow2Height          :   60px;
+$theme-font-color          :   #514859;
+$font-color0               :   #A9A6AD;
+$font-color1               :   #948a9c;
+$font-color2               :   #FFFEFD;
+$font-color3               :   #B1A9B8;
+$font-hover-color1         :   #FFF;
+$green                     :   #257c50;
+$purple1                   :   #170E1F;
+$purple2                   :   #342840;
+$purple3                   :   #2D1837;
+$purple4                   :   #28152f;
+$purple5                   :   #2B1F36;
+$purple6                   :   #241B2F;
+$yellow                    :   #988950;
+$yellow2                   :   #FFCC00;
+$red                       :   #A80B42;
+$border-color1             :   #494053;
+$border-color2             :   #2b1f37;
+$header-font-color         :   #B5B3B6;
+$footer-background-color   :   #070C12;
+
+$common-icon-top1          :   -10px;
+$common-icon-top2          :   -64px;
+$common-icon-top3          :   -96px;
+
+$platform-icon-top1        :   -1px;
+$platform-icon-top2        :   -140px;
+
+
+$pc-bk-color1       :  rgb(56, 53, 66);
+$pc-bk-color2       :  rgb(22, 21, 33);
+$pc-btn-ck-color    :  $pc-bk-color1;
+$pc-btn-font-color  :  #b1a9b8;
+
+@mixin page-property {
+    color: #FFF;
+    display: none;
+    position: relative;
+    width: 100%;
+    min-height: 450px;
+    margin: 0 auto;
+
+    .page-logo {
+        transition: width .5s;
+    }
+
+    .wrapper {
+        width: $contentWidth;
+        transition: width .5s;
+    }
+}
+
+@mixin tab-page {
+    display: none;
+    width: 100%;
+    padding: 25px 20px;
+    box-sizing: border-box;
+}
+
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes $animation-name {
+        @content;
+    }
+    @-moz-keyframes $animation-name {
+        @content;
+    }
+    @-o-keyframes $animation-name {
+        @content;
+    }
+    @keyframes $animation-name {
+        @content;
+    }
+}
+
+@mixin animation($animation) {
+    animation: $animation;
+    -o-animation: $animation;
+    -ms-animation: $animation;
+    -moz-animation: $animation;
+    -webkit-animation: $animation;
+}
+
+@mixin transition($transition) {
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -ms-transition: $transition;
+    -o-transition: $transition;
+    transition: $transition;
+}
+
+@mixin transform($transforms) {
+    transform: $transforms;
+    -o-transform: $transforms;
+    -ms-transform: $transforms;
+    -moz-transform: $transforms;
+    -webkit-transform: $transforms;
+}
+
+@mixin border-radius($radius) {
+    border-radius: $radius;
+    -ms-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -webkit-border-radius: $radius;
+}
+
+@mixin background-size($size) {
+    background-size: $size;
+    -o-background-size: $size;
+    -moz-background-size: $size;
+    -webkit-background-size: $size;
+}
+
+@mixin box-shadow($str) {
+    -moz-box-shadow: $str;
+    -webkit-box-shadow: $str;
+    box-shadow: $str;
+}
+
+@mixin box-sizing($sizing) {
+    box-sizing: $sizing;
+    -moz-box-sizing: $sizing;
+    -webkit-box-sizing: $sizing;
+}
+
+@mixin input-placeholder {
+    &::-webkit-input-placeholder {
+        @content;
+    }
+
+    &:-ms-input-placeholder {
+        @content;
+    }
+
+    &:-moz-input-placeholder {
+        @content;
+    }
+}
+
+@mixin dialog-frame {
+    visibility: hidden;
+    opacity: 0;
+}
+
+@mixin dialog-wrapper($width, $height: auto) {
+    display: block;
+    perspective: 1300px;
+    transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    width: $width;
+    height: $height;
+    z-index: 140;
+}
+
+@mixin dialog($width, $height) {
+    background-color: $pc-bk-color2;
+    border-radius: 5px;
+    color: $font-color1;
+    font-size: 14px;
+    height: $height;
+    margin: 0 auto;
+    position: relative;
+    width: $width;
+    -webkit-transform: rotateX(-90deg);
+    transform: rotateX(-90deg);
+}
+
+@mixin im-button($height) {
+    height: $height;
+
+    .im-button-wrapper {
+        top: (0 - $height*2);
+
+        .im-button-row1 {
+            height: $height;
+            line-height: $height;
+        }
+
+        .im-button-row2 {
+            height: $height;
+            line-height: $height;
+        }
+
+        .im-button-row3 {
+            height: $height;
+            line-height: $height;
+        }
+    }
+
+    &:hover {
+        .im-button-wrapper {
+            top: 0;
+        }
+    }
+}
+
+@mixin button1 {
+    background-color: $pc-btn-ck-color;
+    border-radius: 20px;
+    color: $pc-btn-font-color;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    width: 130px;
+    text-align: center;
+
+    &:hover{
+        color: $font-color2;
+    }
+}
+
+@mixin table {
+    border-top: 1px solid $pc-bk-color1;
+    width: 100%;
+    text-align: center;
+    
+    thead {
+        background-color: $pc-bk-color2;
+        color: $font-color1;
+
+        tr {
+            height: 35px;
+
+            th {
+                border: 0;
+                color: $font-color1;
+
+                &:first-child {
+                    text-align: left;
+                    padding-left: 20px;
+                }
+
+                &:last-child {
+                    text-align: right;
+                    padding-right: 20px;
+                }
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            border: 0;
+            height: 45px;
+
+            td {
+                border: 0;
+                color: $font-color1;
+
+                &:first-child {
+                    text-align: left;
+                    padding-left: 20px;
+                }
+
+                &:last-child {
+                    text-align: right;
+                    padding-right: 20px;
+                }
+            }
+        }
+
+        .odd {
+            background-color: #121219;
+        }
+
+        .even {
+            background-color: rgba(29, 29, 41, 0.87);
+        }
+    }
+}
+
+@mixin shortcut-date {
+    $dateButtonWidth   :  60px;
+    $dateButtonHeight  :  28px;
+
+    display: inline-block;
+    float: right;
+    height: $dateButtonHeight;
+
+    li {
+        background-color: $pc-btn-ck-color;
+        border-radius: 20px;
+        color: $pc-btn-font-color;
+        cursor: pointer;
+        display: inline-block;
+        height: $dateButtonHeight;
+        line-height: $dateButtonHeight;
+        margin: 0 5px;
+        text-align: center;
+        width: $dateButtonWidth;
+
+        &:hover {
+            color: $font-color2;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    .selected {
+        background-color: $green;
+        color: #FFF;
+    }
+}
+
+.clear {
+    clear:both; 
+    height: 0; 
+    line-height: 0; 
+    font-size: 0;
+}

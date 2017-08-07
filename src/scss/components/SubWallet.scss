@@ -1,0 +1,91 @@
+@import "../mixins.scss";
+
+.sub-wallet{
+    $baseL                  :    1300;
+    $baseWidth              :    1300px;
+    $itemWidth              :    $baseWidth * 170 / $baseL;
+
+    border-right: 1px solid $pc-bk-color1;
+    color: $font-color1;
+    width: $itemWidth;
+    height: 60px;
+    position: relative;
+    font-weight: normal;
+    margin-top: 7px;
+    padding: 0 15px;
+    text-align: left;
+
+	.row1 {
+		height: 30px;
+		line-height: 30px;
+		width: 100%;
+
+		.balance {
+			float: left;
+			font-size: 16px;
+		}
+
+        .refresh-icon {
+            background-image: url(../img/common.png);
+            background-position: -132px -77px;
+            cursor: pointer;
+            display: inline-block;
+            float: right;
+            height: 15px;
+            margin-top: 7px;
+            width: 19px;
+
+            &:hover {
+                background-position: -132px -110px;
+            }
+        }
+	}
+
+	.row2 {
+		height: 30px;
+		line-height: 30px;
+		width: 100%;
+
+		.platform {
+			float: left;
+			font-size: 14px;
+		}
+
+		.btn-transfer {
+			cursor: pointer;
+			float: right;
+			font-size: 14px;
+
+			&:hover {
+				color: $font-color2;
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1350px) {
+	.sub-wallet{
+	    $baseL                  :    1300;
+	    $baseWidth              :    1000px;
+	    $itemWidth              :    $baseWidth * 170 / $baseL;
+
+	    width: $itemWidth;
+
+		.row1 {
+			.balance {
+				font-size: 12px;
+			}
+		}
+
+		.row2 {
+			.platform {
+				font-size: 12px;
+			}
+
+			.btn-transfer {
+				font-size: 12px;
+			}
+		}
+	}
+}

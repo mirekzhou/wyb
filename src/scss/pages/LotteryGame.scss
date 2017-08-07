@@ -1,0 +1,229 @@
+@import "../mixins.scss";
+
+.lottery-game {
+	@include page-property;
+
+	.wrapper {
+		position: relative;
+		width: $contentWidth;
+
+		$baseL              : 1300;
+		$baseWidth          : 1300px;
+		$itemHeight         : $baseWidth * 355 / $baseL;
+		$height1            : $baseWidth * 300 / $baseL;
+		$height2            : $baseWidth * 55 / $baseL;
+		$width1             : $baseWidth * 650 / $baseL;
+		$width2             : $baseWidth * 650 / $baseL;
+		$leftPadding        : $baseWidth * 90 / $baseL;
+		$row1Top            : $baseWidth * 45 / $baseL;
+		$row3Top            : $baseWidth * 50 / $baseL;
+		$item2Top           : $baseWidth * 10 / $baseL;
+
+		.item {
+			height: $itemHeight;
+			width: $baseWidth;
+
+			.up {
+				background-color: rgba(0, 0, 0, .3);
+				height: $height1;
+				width: 100%;
+				transition: all .3s;
+
+				.left {
+					display: inline-block;
+					height: $height1;
+					width: $width1;
+					text-align: left;
+					vertical-align: top;
+					transition: all .3s;
+
+					.row1 {
+						padding-left: $leftPadding;
+						margin-top: $row1Top;
+
+						.lottery-icon {
+							background-image: url("../img/lottery.png");
+							display: inline-block;
+							height: 70px;
+							width: 150px;
+						}
+
+						.keno-icon {
+							background-position: -10px 0px;
+						}
+
+						.bbin-icon {
+							background-position: -10px -70px;
+						}
+					}
+
+					.row2 {
+						padding-left: $leftPadding;
+
+						.text {
+							color: $font-color0;
+							text-align: left;
+						    height: 25px;
+						    line-height: 25px;
+						}
+					}
+
+					.row3 {
+						padding-left: $leftPadding;
+						display: inline-block;
+						width: 100%;
+						text-align: left;
+	    				margin-top: $row3Top;
+
+						.button {
+							background-color: rgba(168, 11, 66, .5);
+							border: none;
+							border-radius: 20px;
+							color: #FFF;
+						    display: inline-block;
+						    font-weight: normal;
+						    height: 35px;
+						    line-height: 35px;
+						    width: 120px;
+
+						    &:hover {
+						    	background-color: $red;
+						    	color: #FFF;
+						    }
+						}
+					}
+				}
+
+				.right {
+					background-image: url("../img/lottery-b1.png");
+					background-repeat: no-repeat;
+					background-position: 50% 50%;
+					display: inline-block;
+					height: $height1;
+					width: $width2;
+					vertical-align: top;
+					transition: all .3s;
+				}
+			}
+
+			.down {
+				background-color: $purple1;
+				color: $font-color1;
+				height: $height2;
+				line-height: $height2;
+				width: 100%;
+				transition: all .3s;
+
+				ul {
+					padding: 0 56px;
+
+					li {
+						display: inline-block;
+						font-size: 12px;
+						color: #5b4b5e;
+						position: relative;
+						text-align: center;
+
+						.slash {
+							position: absolute;
+							top: 0;
+							right: -1px;
+						}
+
+						&:last-child {
+							.slash {
+								display: none;
+							}
+						}
+					}
+				}
+			}
+
+			&:first-child {
+				.down {
+					li {
+						width: 12.5%;
+					}
+				}
+			}
+
+			&:nth-child(2) {
+				margin-top: $item2Top;
+
+				.up {
+					.right {
+						background-image: url("../img/lottery-b2.png");
+					}
+				}
+
+				.down {
+					li {
+						width: 11.11%;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1300px) {
+	.lottery-game {
+		.wrapper {
+			$baseL              : 1300;
+			$baseWidth          : 1000px;
+			$itemHeight         : $baseWidth * 355 / $baseL;
+			$height1            : $baseWidth * 300 / $baseL;
+			$height2            : $baseWidth * 55 / $baseL;
+			$width1             : $baseWidth * 650 / $baseL;
+			$width2             : $baseWidth * 650 / $baseL;
+			$leftPadding        : $baseWidth * 90 / $baseL;
+			$row1Top            : $baseWidth * 45 / $baseL;
+			$row3Top            : $baseWidth * 50 / $baseL;
+			$item2Top           : $baseWidth * 10 / $baseL;
+
+			width: $baseWidth;
+
+			.item {
+				height: $itemHeight;
+				width: $baseWidth;
+
+				.up {
+					height: $height1;
+
+					.left {
+						height: $height1;
+						width: $width1;
+
+						.row1 {
+							padding-left: $leftPadding;
+							margin-top: 22px;
+						}
+
+						.row2 {
+							padding-left: $leftPadding;
+						}
+
+						.row3 {
+							padding-left: $leftPadding;
+		    				margin-top: $row3Top;
+						}
+					}
+
+					.right {
+						height: $height1;
+						width: $width2;
+					}
+				}
+
+				.down {
+					height: $height2;
+					line-height: $height2;
+				}
+
+				&:nth-child(2) {
+					margin-top: $item2Top;
+				}
+			}
+		}
+	}
+}

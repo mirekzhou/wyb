@@ -1,0 +1,29 @@
+@import "../mixins.scss";
+
+.announcement-info{
+	@include tab-page;
+
+	display: block;
+	font-size: 14px;
+	padding: 25px 0;
+
+	.table-zone {
+		width: 100%;
+
+		table {
+			@include table;
+
+			tbody {
+				tr {
+					cursor: pointer;
+					
+					td {
+						p {
+							text-align: left;
+						}
+					}
+				}
+			}
+		}
+	}
+}

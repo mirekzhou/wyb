@@ -1,0 +1,124 @@
+@import "../mixins.scss";
+
+.sign-in {
+	@include dialog-frame;
+
+	.dialog-wrapper {	
+		@include dialog-wrapper(364px, 374px);
+		z-index: 150;
+		top: 50%;
+
+		.dialog {
+			@include dialog(350px, 360px);
+			height: auto;
+			padding: 0 20px;
+			padding-bottom: 20px;
+
+			.text {
+				display: inline-block;
+				width: 60px;
+				height: 30px;
+				line-height: 30px;
+				text-align: left;
+				vertical-align: top;
+			}
+
+			.row {
+				height: 50px;
+				margin-top: 5px;
+				width: 100%;
+				text-align: left;
+			}
+
+			.row1 {
+				height: 100px;
+				width: 100%;
+				position: relative;
+				text-align: center;
+
+				.logo-icon-small {
+					margin-top: 30px;
+				}
+				
+				.close {
+					cursor: pointer;
+					position: absolute;
+					right: -5px;
+					top: 0px;
+					font-size: 25px;
+					color: #736981;
+				}
+			}
+
+			.verify-row {
+				.verify-code {
+					height: 30px;
+    				margin-left: 9px;
+				}
+
+				.change-verify-code {
+					cursor: pointer;
+					margin-left: 9px;
+					height: 30px;
+					line-height: 30px;
+					vertical-align: top;
+
+					&:hover {
+						color: #FFF;
+					}
+				}
+			}
+
+			.button-row {
+				height: 60px;
+				width: 100%;
+				text-align: right;
+				margin-top: 15px;
+
+				.button {
+					@include button1;
+
+					cursor: pointer;
+					border-radius: 0;
+					width: 310px;
+					height: 35px;
+					line-height: 35px;
+					text-align: center;
+					margin-right: 18px;
+				}
+
+				.active {
+					background-color: #257C51;
+					color: #FFF;
+				}
+				
+				.button-info {
+					color: #555555;
+					cursor: pointer;
+					font-size: 12px;
+					height: 20px;
+					line-height: 20px;
+					text-align: right;
+					margin-top: 5px;
+				}
+
+				.find-password {
+					float: right;
+
+					&:hover {
+						color: $font-hover-color1;
+					}
+				}
+
+				.signup-now {	
+					display: inline-block;
+					float: left;
+
+					&:hover {
+						color: $font-hover-color1;
+					}
+				}
+			}
+		}
+	}
+}

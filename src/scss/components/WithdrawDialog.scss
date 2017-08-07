@@ -1,0 +1,229 @@
+@import "../mixins.scss";
+
+.withdraw-dialog {
+	@include dialog-frame;
+
+	.dialog-wrapper {
+		@include dialog-wrapper(900px);
+        z-index: 190;
+        top: 50%;
+
+		.dialog {
+			@include dialog(900px, 530px);	
+
+			.subtitle {
+			    height: 45px;
+			    line-height: 45px;
+			    border-bottom: 1px solid #2b1f35;
+			    position: relative;
+			    text-align: center;
+
+				.title-name {
+					color: $font-color3;
+					font-size: 16px;
+				}
+
+				.close {
+					position: absolute;
+					right: 15px;
+					top: 15px;
+				    cursor: pointer;
+				    font-size: 25px;
+				    height: 15px;
+				    line-height: 15px;
+
+				    &:hover {
+				    	color: $font-color2;
+				    }
+				}
+			}
+
+			.content {
+				padding: 0 35px;
+				width: 100%;
+
+				.summary {
+					height: 55px;
+					line-height: 55px;
+					margin-top: 20px;
+					text-align: left;
+					width: 100%;
+				}
+
+				.table {
+					width: 100%;
+				    height: 270px;
+				    overflow: hidden;
+
+				    .thead {
+				    	border-bottom: 1px solid #6f6677;
+				    }
+
+				    .tbody {
+				    	border-bottom: 1px solid #6f6677;
+				    	height: 211px;
+				    	overflow-y: auto;
+
+				    	.tr {
+							&:first-child {
+								border-top: none;
+							}
+				    	}
+				    }
+
+					::-webkit-scrollbar {
+					    width: 5px;
+					    height: 5px;
+					    background-color: $purple1;
+					}
+
+					::-webkit-scrollbar-track {
+					    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+					    border-radius: 10px;
+					    background-color: $purple1;
+					}
+
+					::-webkit-scrollbar-thumb {
+					    border-radius: 10px;
+					    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+					    background-color: $font-color1;
+					}
+
+					.tr {
+						border-top: 1px solid #6f6677;
+						height: 55px;
+						line-height: 55px;
+						text-align: left;
+						overflow: hidden;
+
+						.th {
+							border-left: 1px solid #6f6677;
+							display: inline-block;
+							font-size: 12px;
+							height: 55px;
+							line-height: 55px;
+						    vertical-align: top;
+						    text-align: center;
+						}
+
+						.td {
+							border-left: 1px solid #6f6677;
+							display: inline-block;
+							font-size: 12px;
+							height: 55px;
+						    vertical-align: top;
+						    text-align: center;
+						}
+					}
+				}
+
+				.table1 {
+					.td1 {
+						width: 5%;
+					}
+
+					.td2 {
+						line-height: 27.5px;
+						width: 25%;
+					}
+
+					.td3 {
+						width: 10%;
+					}
+
+					.td4 {
+						width: 7.5%;
+					}
+
+					.td5 {
+						width: 7.5%;
+					}
+
+					.td6 {
+						width: 7.5%;
+					}
+
+					.td7 {
+						width: 10%;
+					}
+					
+					.td8 {
+						width: 7.5%;
+					}
+
+					.td9 {
+						width: 10%;
+					}
+
+					.td10 {
+						width: 10%;
+						border-right: 1px solid #6f6677;
+					}
+				}
+
+				.table2 {
+					.td1 {
+						width: 5%;
+					}
+
+					.td2 {
+						line-height: 27.5px;
+						width: 25%;
+					}
+
+					.td3 {
+						width: 11.66%;
+					}
+
+					.td4 {
+						width: 11.66%;
+					}
+
+					.td5 {
+						width: 11.66%;
+					}
+
+					.td6 {
+						width: 11.66%;
+					}
+
+					.td7 {
+						width: 11.66%;
+					}
+					
+					.td8 {
+						width: 11.66%;
+						border-right: 1px solid #6f6677;
+					}
+				}
+
+				.total-penalty {
+					margin-top: 20px;
+					text-align: left;
+					width: 100%;
+
+					.math-icon {
+						padding: 0 20px;
+					}
+
+					div {
+    					line-height: 30px;
+					}
+				}
+
+				.button-zone {
+					width: 100%;
+					text-align: center;
+
+					.button {
+						@include button1;
+
+						&:last-child {
+							margin-left: 30px;
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,77 @@
+@import "../mixins.scss";
+
+.bank-card-manager-content {
+	@include dialog-frame;
+
+	.dialog-wrapper {
+		@include dialog-wrapper(700px);
+        z-index: 190;
+        top: 50%;
+
+		.dialog {
+			@include dialog(870px, 480px);
+			font-size: 16px;
+
+			.subtitle {
+			    height: 45px;
+			    line-height: 45px;
+			    border-bottom: 1px solid #2b1f35;
+			    position: relative;
+			    text-align: center;
+
+				.title-name {
+					color: $font-color3;
+					font-size: 16px;
+				}
+
+				.close {
+					position: absolute;
+					right: 15px;
+					top: 15px;
+				    cursor: pointer;
+				    font-size: 25px;
+				    height: 15px;
+				    line-height: 15px;
+
+				    &:hover {
+				    	color: $font-color2;
+				    }
+				}
+			}
+
+			.card-content {
+				.card-info {
+				    background: $purple6;
+				    border-radius: 15px;
+				    width: 250px;
+				    height: 155px;
+					margin-left: 30px;
+					margin-top: 30px;
+				    text-align: center;
+				    float: left;
+
+					.bank-name {
+						font-weight: bold;
+				        height: 100px;
+				        line-height: 100px;
+					}
+
+					.card-number {
+						height: 55px;
+					}
+				}
+
+				.add-card {
+					background: transparent;
+					border: 1px dashed $border-color1;
+					cursor: pointer;
+
+					.bank-name {
+						font-size: 40px;
+						font-weight: normal;
+					}
+				}
+			}
+		}
+	}
+}
